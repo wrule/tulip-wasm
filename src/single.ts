@@ -34,3 +34,18 @@ function run(
   if (align !== true) _align(outputs, align === false ? size - outputs_offset : align);
   return outputs;
 }
+
+export
+function _align(outputs: Float64Array[], length: number) {
+  outputs.forEach((output, index) => {
+    const diff = length - output.length;
+    if (diff > 0) {
+      const head = new Float64Array(Array(diff).fill(NaN));
+      const array = new Float64Array(head.length + output.length);
+      array.set(head, 0);
+      array.set(output, head.length);
+      outputs[index] = array;
+    }
+    if (diff < 0) outputs[index] = output.subarray(-diff, output.length);
+  });
+}
