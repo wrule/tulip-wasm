@@ -25,3 +25,8 @@ const Global = (() => {
   if (!env) throw 'unknown runtime';
   return env;
 })();
+
+export
+function IsArrayLike(input: any) {
+  return input.length != null;
+}
