@@ -1,0 +1,24 @@
+{
+  "name": "tulip-wasm",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "pack": "script/pack.sh",
+    "clean": "rm -rf dist",
+    "watch": "tsc --watch",
+    "dev": "node dist/dev.js",
+    "new": "ts-node script/new.ts",
+    "patch": "script/patch.sh"
+  },
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "@types/node": "18.16.1",
+    "dayjs": "1.11.9",
+    "global-agent": "3.0.0",
+    "ts-node": "10.9.1",
+    "typescript": "5.1.6",
+    "webpack-cli": "5.1.4"
+  }
+}
