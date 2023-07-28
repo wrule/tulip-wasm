@@ -9,7 +9,8 @@
     "watch": "tsc --watch",
     "dev": "node dist/dev.js",
     "new": "ts-node script/new.ts",
-    "patch": "script/patch.sh"
+    "patch": "script/patch.sh",
+    "cc": "script/cc.sh"
   },
   "license": "MIT",
   "private": false,
