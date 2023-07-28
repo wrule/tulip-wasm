@@ -8,7 +8,7 @@ async function dev() {
   const list2 = Array(10000000).fill(0).map(() => Math.random() * 1000);
   // console.log(start(72, [10]));
   console.log(
-    run(48, [list1], [2, 3, 2], true).macd
+    run(48, [list1], [2, 3, 2], true)
   );
 }
 
