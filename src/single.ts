@@ -1,3 +1,5 @@
+import { Global } from './utils';
+import { TulipX } from './tulipx_promise';
 
 export
 function start(indic_index: number, options: ArrayLike<number>) {
