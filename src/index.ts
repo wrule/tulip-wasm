@@ -1,5 +1,6 @@
+import * as tulip from './meta';
+import { Global } from './utils';
 
-export
-function hello() {
-  console.log('hello world!');
-}
+Global.tulip = tulip;
+
+export * from './meta';
