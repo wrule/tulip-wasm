@@ -1,4 +1,5 @@
 import { Global } from './utils';
+import { documents } from './meta';
 import { TulipX } from './tulipx_promise';
 
 export
@@ -25,7 +26,7 @@ function run(
   inputs.forEach((input, index) => tulipx._set_array(tulipx._inputs(task, index), input));
   tulipx._set_array(tulipx._options(task), options);
   tulipx._run(task);
-  const outputs = Array(_docs[indic_index].outputs).fill(0)
+  const outputs = Array(documents[indic_index].outputs).fill(0)
     .map((_, index) => tulipx._get_array(tulipx._outputs(task, index), size));
   const outputs_offset = tulipx._outputs_offset(task);
   outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
