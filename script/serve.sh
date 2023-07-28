@@ -1,4 +1,4 @@
 #!/bin/bash
-cp src/index.html dist/index.html
+cp script/index.html dist/index.html
 cd dist
 live-server
