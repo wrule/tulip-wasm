@@ -10,7 +10,8 @@
     "dev": "node dist/dev.js",
     "new": "ts-node script/new.ts",
     "patch": "script/patch.sh",
-    "cc": "script/cc.sh"
+    "cc": "script/cc.sh",
+    "json": "script/json.sh"
   },
   "license": "MIT",
   "private": false,
