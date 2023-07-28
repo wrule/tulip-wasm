@@ -20,7 +20,7 @@ function run(
   options: ArrayLike<number>,
   align: boolean | number = false,
 ) {
-  const tulipx: TulipX = Global.tulipx_wasm;
+  const tulipx: TulipX = Global.tulip_wasm;
   const size = inputs[0].length;
   const task = tulipx._push(indic_index, size, 0);
   inputs.forEach((input, index) => tulipx._set_array(tulipx._inputs(task, index), input));
