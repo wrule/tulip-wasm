@@ -3,6 +3,21 @@
     <meta charset="UTF-8">
     <title>tulip-wasm</title>
   </head>
-  <body><h1>tulip-wasm</h1></body>
+  <body>
+    <h1>tulip-wasm</h1>
+    <p>10000000 sma takes <span id="ms">0</span> ms</p>
+  </body>
   <script src="index.min.js"></script>
+  <script>
+    async function main() {
+      await tulip.init();
+      const list = Array(10000000).fill(0).map(() => Math.random() * 1000);
+      const old_time = Date.now();
+      tulip.run(72, [list], [10]);
+      const ms = Date.now() - old_time;
+      document.querySelector('#ms').innerHTML = ms;
+    }
+
+    main();
+  </script>
 </html>
