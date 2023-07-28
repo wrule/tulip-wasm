@@ -11,7 +11,8 @@
     "new": "ts-node script/new.ts",
     "patch": "script/patch.sh",
     "cc": "script/cc.sh",
-    "json": "script/json.sh"
+    "json": "script/json.sh",
+    "serve": "script/serve.sh"
   },
   "license": "MIT",
   "private": false,
