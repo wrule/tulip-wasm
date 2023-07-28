@@ -1,3 +1,6 @@
+import { Global } from './utils';
+import get_tulipx from './tulipx';
+
 export
 interface TulipX {
   _push(indic_index: number, size: number, start_task: number): number;
