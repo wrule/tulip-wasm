@@ -25,12 +25,12 @@ interface Indicator {
 
 function main() {
   const filepath = process.argv[2];
-  const indicators = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+  const indicators: Indicator[] = JSON.parse(fs.readFileSync(filepath, 'utf8'));
   Object.entries(tasks).forEach(([name, func]) => {
-    const indicator = indicators.find((indicator: Indicator) => indicator.name === name);
+    const indicator = indicators.find((indicator) => indicator.name === name);
     if (indicator) {
-      console.log('correct', indicator.name);
       func(indicator);
+      console.log('correct', indicator.name);
     }
   });
   fs.writeFileSync(filepath, JSON.stringify(indicators, null, 2), 'utf8');
