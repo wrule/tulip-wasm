@@ -1,6 +1,4 @@
-import { hello } from '.';
-import { start, run, _align } from './single';
-import { init } from './tulipx_promise';
+import { start, run, _align, init } from './meta';
 
 async function dev() {
   await init();
