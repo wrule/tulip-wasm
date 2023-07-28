@@ -36,11 +36,11 @@ let initializing = false;
 
 export
 async function init() {
-  if (Global.tulipx_wasm) return;
+  if (Global.tulip_wasm) return;
   const log = !initializing;
   initializing = true;
   log && console.log('initialize tulip-wasm...');
-  Global.tulipx_wasm = await tulipx_promise;
+  Global.tulip_wasm = await tulipx_promise;
   log && console.log('initialization successful');
 }
 
