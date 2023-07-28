@@ -21,7 +21,6 @@ interface TulipX {
   _get_array(address: number, size: number): Float64Array;
 }
 
-export
 async function tulipx_factory() {
   const tulipx: TulipX = await get_tulipx();
   const bytes = tulipx.HEAPF64.BYTES_PER_ELEMENT;
@@ -40,7 +39,7 @@ async function init() {
   if (Global.tulipx_wasm) return;
   const log = !initializing;
   initializing = true;
-  log && console.log('initialize tulipx-wasm...');
+  log && console.log('initialize tulip-wasm...');
   Global.tulipx_wasm = await tulipx_promise;
   log && console.log('initialization successful');
 }
