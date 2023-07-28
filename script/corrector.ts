@@ -1,13 +1,13 @@
 import fs from 'fs';
 
 const tasks = {
-  'add': (indicator: Indicator) => indicator.input_names = ['real1', 'real2'],
-  'sub': (indicator: Indicator) => indicator.input_names = ['real1', 'real2'],
-  'mul': (indicator: Indicator) => indicator.input_names = ['real1', 'real2'],
-  'div': (indicator: Indicator) => indicator.input_names = ['real1', 'real2'],
-  'crossany': (indicator: Indicator) => indicator.input_names = ['real1', 'real2'],
-  'crossover': (indicator: Indicator) => indicator.input_names = ['real1', 'real2'],
-  'var': (indicator: Indicator) => indicator.name = '_var',
+  'add': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
+  'sub': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
+  'mul': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
+  'div': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
+  'crossany': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
+  'crossover': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
+  'var': (indic: Indicator) => indic.name = '_var',
 };
 
 interface Indicator {
@@ -27,10 +27,10 @@ function main() {
   const filepath = process.argv[2];
   const indicators: Indicator[] = JSON.parse(fs.readFileSync(filepath, 'utf8'));
   Object.entries(tasks).forEach(([name, func]) => {
-    const indicator = indicators.find((indicator) => indicator.name === name);
-    if (indicator) {
-      func(indicator);
-      console.log('correct', indicator.name);
+    const indic = indicators.find((indic) => indic.name === name);
+    if (indic) {
+      func(indic);
+      console.log('correct', indic.name);
     }
   });
   fs.writeFileSync(filepath, JSON.stringify(indicators, null, 2), 'utf8');
