@@ -1,3 +1,4 @@
+import { Indicator } from './indicator';
 
 export
 const IsBrowser =
@@ -29,4 +30,12 @@ const Global = (() => {
 export
 function IsArrayLike(input: any) {
   return input.length != null;
+}
+
+export
+function RunResult(indic: Indicator, outputs: Float64Array[]) {
+  if (indic.outputs < 2) return outputs[0];
+  return Object.fromEntries(
+    indic.output_names.map((name, index) => [name, outputs[index]])
+  );
 }
