@@ -16,7 +16,7 @@ interface TulipX {
   _run(task_index: number): void;
   _run_batch(start_index: number, end_index: number): void;
   _erase_batch(start_index: number, end_index: number, only_erase: number): void;
-  HEAPF64: Float64Array,
+  HEAPF64: Float64Array;
   _set_array(address: number, array: ArrayLike<number>): void;
   _get_array(address: number, size: number): Float64Array;
 }
