@@ -1,6 +1,6 @@
-import { Global } from './utils';
 import { documents } from './meta';
 import { TulipX } from './tulipx_promise';
+import { Global, RunResult } from './utils';
 
 export
 function start(indic_index: number, options: ArrayLike<number>) {
@@ -33,7 +33,7 @@ function run(
   outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
   tulipx._pop();
   if (align !== true) _align(outputs, align === false ? size - outputs_offset : align);
-  return outputs;
+  return RunResult(indic, outputs);
 }
 
 export
