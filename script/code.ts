@@ -42,15 +42,11 @@ class Code {
  */
 export
 function ${this.indic.name}(${this.argsCode}) {
-  const outputs = run(${this.indic.index}, [${
+  return run(${this.indic.index}, [${
     this.names(this.indic.input_names, '')
   }], [${
     this.names(this.indic.option_names, this.options ? 'options' : '')
   }], align);
-  return ${this.outputs ?
-    `{ ${this.names(this.indic.output_names, 'outputs')} }` :
-    'outputs[0]'
-  };
 }
     `.trim();
   }
