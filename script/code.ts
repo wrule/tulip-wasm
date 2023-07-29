@@ -97,6 +97,8 @@ import { run, start } from './meta';
 
 ${documents.map((ind) => new Code(ind).CodeRun()).join('\n\n')}
 
+${documents.map((ind) => new Code(ind).CodeSubmit()).join('\n\n')}
+
 ${documents.map((ind) => new Code(ind).CodeStart()).join('\n\n')}
 
 export * from './meta';
