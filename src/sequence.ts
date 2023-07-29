@@ -1,4 +1,4 @@
-import { IsUnion } from './utils';
+import { IsArrayLike, IsUnion } from './utils';
 
 export
 interface InputMap {
@@ -52,11 +52,11 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
     ) {
       if (this.size == null)
         this.size =
-          (inputs.find((input) => is_arraylike(input)) as ArrayLike<number>)?.length;
+          (inputs.find((input) => IsArrayLike(input)) as ArrayLike<number>)?.length;
       if (this.size == null) throw 'size';
       const id = this.tulipx._push(indic_index, this.size, 0);
       inputs.forEach((input, index) => {
-        if (is_arraylike(input))
+        if (IsArrayLike(input))
           this.tulipx._set_array(this.tulipx._inputs(id, index), input as ArrayLike<number>);
         else {
           const map = input as InputMap;
