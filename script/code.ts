@@ -67,7 +67,7 @@ function ${this.indic.name}(${this.argsCode}) {
  * ${this.indic.full_name}
  */
 export
-function ${this.indic.name}_q(${this.argsCode}) {
+function ${this.indic.name}_q(${this.argsCodeSubmit}) {
   return run(${this.indic.index}, [${
     this.names(this.indic.input_names, '')
   }], [${
