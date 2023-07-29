@@ -68,26 +68,6 @@ function ${this.indic.name}_start(${this.optionsCode}) {
 }
     `.trim();
   }
-
-  public CodePromise() {
-    return `
-/**
- * ${this.indic.full_name}
- */
-export
-async function ${this.indic.name}_p(${this.argsCode}) {
-  const outputs = await run_alone_promise(tulip_promise, ${this.indic.index}, [${
-    this.names(this.indic.input_names, '')
-  }], [${
-    this.names(this.indic.option_names, this.options ? 'options' : '')
-  }], ${this.indic.outputs}, align);
-  return ${this.outputs ?
-    `{ ${this.names(this.indic.output_names, 'outputs')} }` :
-    'outputs[0]'
-  };
-}
-    `.trim();
-  }
 }
 
 function main() {
@@ -98,8 +78,6 @@ import { tulip_promise, run_alone_promise, run_alone_sync, run_get_start } from 
 ${documents.map((ind) => new Code(ind).Code()).join('\n\n')}
 
 ${documents.map((ind) => new Code(ind).CodeStart()).join('\n\n')}
-
-${documents.map((ind) => new Code(ind).CodePromise()).join('\n\n')}
   `.trim() + '\n';
   fs.writeFileSync('src/indicators.ts', full_code, 'utf8');
 }
