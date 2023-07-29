@@ -56,6 +56,26 @@ function ${this.indic.name}(${this.argsCode}) {
     `.trim();
   }
 
+  public CodeSubmit() {
+    return `
+/**
+ * ${this.indic.full_name}
+ */
+export
+function ${this.indic.name}(${this.argsCode}) {
+  return run(${this.indic.index}, [${
+    this.names(this.indic.input_names, '')
+  }], [${
+    this.names(this.indic.option_names, this.options ? 'options' : '')
+  }], align) as ${
+    this.outputs ?
+      `{ ${this.names(this.indic.output_names, 'Float64Array')} }` :
+      'Float64Array'
+  };
+}
+    `.trim();
+  }
+
   public CodeStart() {
     return `
 /**
