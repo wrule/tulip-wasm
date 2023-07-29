@@ -12,6 +12,7 @@
     "patch": "script/patch.sh",
     "cc": "script/cc.sh",
     "json": "script/json.sh",
+    "code": "ts-node script/code.ts",
     "serve": "script/serve.sh"
   },
   "license": "MIT",
