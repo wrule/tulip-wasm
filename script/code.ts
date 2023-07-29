@@ -6,11 +6,11 @@ class Code {
   public constructor(private readonly ind: Indicator) { }
 
   private get options() {
-    return this.ind.options > 1;
+    return this.indic.options > 1;
   }
 
   private get outputs() {
-    return this.ind.outputs > 1;
+    return this.indic.outputs > 1;
   }
 
   private names(list: string[], type: 'number' | 'number[]' | 'options' | 'outputs' | '' = 'number') {
@@ -25,12 +25,12 @@ class Code {
 
   private get optionsCode() {
     return this.options ?
-      `options: { ${this.names(this.ind.option_names)} }` :
-      this.names(this.ind.option_names);
+      `options: { ${this.names(this.indic.option_names)} }` :
+      this.names(this.indic.option_names);
   }
 
   private get argsCode() {
-    const inputs = this.names(this.ind.input_names, 'number[]');
+    const inputs = this.names(this.indic.input_names, 'number[]');
     const align = 'align: boolean | number = false';
     return [inputs, this.optionsCode, align].filter((item) => item).join(', ');
   }
@@ -38,17 +38,17 @@ class Code {
   public Code() {
     return `
 /**
- * ${this.ind.full_name}
+ * ${this.indic.full_name}
  */
 export
-function ${this.ind.name}(${this.argsCode}) {
-  const outputs = run_alone_sync(${this.ind.index}, [${
-    this.names(this.ind.input_names, '')
+function ${this.indic.name}(${this.argsCode}) {
+  const outputs = run_alone_sync(${this.indic.index}, [${
+    this.names(this.indic.input_names, '')
   }], [${
-    this.names(this.ind.option_names, this.options ? 'options' : '')
-  }], ${this.ind.outputs}, align);
+    this.names(this.indic.option_names, this.options ? 'options' : '')
+  }], ${this.indic.outputs}, align);
   return ${this.outputs ?
-    `{ ${this.names(this.ind.output_names, 'outputs')} }` :
+    `{ ${this.names(this.indic.output_names, 'outputs')} }` :
     'outputs[0]'
   };
 }
@@ -58,12 +58,12 @@ function ${this.ind.name}(${this.argsCode}) {
   public CodeStart() {
     return `
 /**
- * ${this.ind.full_name}
+ * ${this.indic.full_name}
  */
 export
-function ${this.ind.name}_start(${this.optionsCode}) {
-  return run_get_start(${this.ind.index}, [${
-    this.names(this.ind.option_names, this.options ? 'options' : '')
+function ${this.indic.name}_start(${this.optionsCode}) {
+  return run_get_start(${this.indic.index}, [${
+    this.names(this.indic.option_names, this.options ? 'options' : '')
   }]);
 }
     `.trim();
@@ -72,17 +72,17 @@ function ${this.ind.name}_start(${this.optionsCode}) {
   public CodePromise() {
     return `
 /**
- * ${this.ind.full_name}
+ * ${this.indic.full_name}
  */
 export
-async function ${this.ind.name}_p(${this.argsCode}) {
-  const outputs = await run_alone_promise(tulip_promise, ${this.ind.index}, [${
-    this.names(this.ind.input_names, '')
+async function ${this.indic.name}_p(${this.argsCode}) {
+  const outputs = await run_alone_promise(tulip_promise, ${this.indic.index}, [${
+    this.names(this.indic.input_names, '')
   }], [${
-    this.names(this.ind.option_names, this.options ? 'options' : '')
-  }], ${this.ind.outputs}, align);
+    this.names(this.indic.option_names, this.options ? 'options' : '')
+  }], ${this.indic.outputs}, align);
   return ${this.outputs ?
-    `{ ${this.names(this.ind.output_names, 'outputs')} }` :
+    `{ ${this.names(this.indic.output_names, 'outputs')} }` :
     'outputs[0]'
   };
 }
