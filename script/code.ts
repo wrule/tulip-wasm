@@ -36,7 +36,7 @@ class Code {
     return [inputs, this.optionsCode, align].filter((item) => item).join(', ');
   }
 
-  public Code() {
+  public CodeRun() {
     return `
 /**
  * ${this.indic.full_name}
@@ -75,7 +75,7 @@ function main() {
   const full_code = `
 import { run, start } from './meta';
 
-${documents.map((ind) => new Code(ind).Code()).join('\n\n')}
+${documents.map((ind) => new Code(ind).CodeRun()).join('\n\n')}
 
 ${documents.map((ind) => new Code(ind).CodeStart()).join('\n\n')}
 
