@@ -1,5 +1,5 @@
 import { TulipX, documents } from './meta';
-import { Global, IsArrayLike, IsUnion } from './utils';
+import { Global, IsArrayLike, IsUnion, RunResult } from './utils';
 
 export
 interface InputMap {
@@ -88,10 +88,7 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
         ));
       const outputs_offset = this.tulipx._outputs_offset(last.id);
       outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
-      if (outputs.length < 2) return outputs[0] as Result<T['outputs']>;
-      return Object.fromEntries(
-        indic.output_names.map((name, index) => [name, outputs[index]])
-      ) as Result<T['outputs']>;
+      return RunResult(indic, outputs) as SequenceResult<T['outputs']>;
     }
   
     public RunOnce() {
