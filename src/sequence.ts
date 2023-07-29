@@ -33,7 +33,7 @@ export
 class Sequence<T extends Task = Task> {
   private size!: number;
   private tasks: Task[] = [];
-  private readonly tulipx: TulipX = Global.tulipx_wasm;
+  private readonly tulipx: TulipX = Global.tulip_wasm;
 
   private inputs_map(
     names: string[],
