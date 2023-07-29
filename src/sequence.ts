@@ -52,7 +52,7 @@ class Sequence<T extends Task = Task> {
   ) {
     if (this.size == null)
       this.size = (inputs.find((input) => IsArrayLike(input)) as ArrayLike<number>)?.length;
-    if (this.size == null) throw 'size';
+    if (this.size == null) throw 'entry task must have a size';
     const id = this.tulipx._push(indic_index, this.size, 0);
     inputs.forEach((input, index) => {
       if (IsArrayLike(input))
