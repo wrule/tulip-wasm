@@ -16,7 +16,7 @@ class Code {
   private names(list: string[], type: 'number' | 'number[]' | 'Float64Array' | 'options' | 'outputs' | '' = 'number') {
     return list.map((name, index) => {
       if (type === 'number') return `${name}: number`;
-      if (type === 'number[]') return `${name}: number[]`;
+      if (type === 'number[]') return `${name}: ArrayLike<number>`;
       if (type === 'Float64Array') return `${name}: Float64Array`;
       if (type === 'options') return `options.${name}`;
       if (type === 'outputs') return `${name}: outputs[${index}]`;
@@ -68,15 +68,11 @@ function ${this.indic.name}(${this.argsCode}) {
  */
 export
 function ${this.indic.name}_q(${this.argsCodeSubmit}) {
-  return run(${this.indic.index}, [${
+  return submit(${this.indic.index}, [${
     this.names(this.indic.input_names, '')
   }], [${
     this.names(this.indic.option_names, this.options ? 'options' : '')
-  }], align) as ${
-    this.outputs ?
-      `{ ${this.names(this.indic.output_names, 'Float64Array')} }` :
-      'Float64Array'
-  };
+  }]);
 }
     `.trim();
   }
@@ -98,7 +94,7 @@ function ${this.indic.name}_start(${this.optionsCode}) {
 
 function main() {
   const full_code = `
-import { run, start } from './meta';
+import { run, start, submit } from './meta';
 
 ${documents.map((ind) => new Code(ind).CodeRun()).join('\n\n')}
 
