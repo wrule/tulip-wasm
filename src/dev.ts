@@ -7,12 +7,11 @@ async function dev() {
 
   const old_time = Date.now();
   const seq = sequence(() => {
-    const a = submit(72, [list2], [2]);
-    const b = submit(72, [a.outputs.sma], [2]);
-    return submit(72, [b.outputs.sma], [2]);
+    const a = submit(69, [list2], [45]);
+    return submit(76, [a.outputs.rsi, a.outputs.rsi, a.outputs.rsi], [13, 32, 45]);
   });
   const result = seq.Run();
-  console.log(Date.now() - old_time, result.length);
+  console.log(Date.now() - old_time, Object.keys(result));
 
   // const old_time = Date.now();
   // const result = run(72, [list2], [10]);
