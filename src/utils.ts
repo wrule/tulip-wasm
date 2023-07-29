@@ -39,3 +39,7 @@ function RunResult(indic: Indicator, outputs: Float64Array[]) {
     indic.output_names.map((name, index) => [name, outputs[index]])
   );
 }
+
+export
+type IsUnion<T, U extends T = T> =
+  T extends unknown ? [U] extends [T] ? false : true : false;
