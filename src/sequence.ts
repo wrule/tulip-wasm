@@ -99,17 +99,17 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
       return result;
     }
   }
-  
-  export
-  function submit(
-    indic_index: number,
-    inputs: Input[],
-    options: ArrayLike<number>,
-  ) {
-    const seq: Sequence = Global.tulipx_sequence;
-    return seq.Push(indic_index, inputs, options);
-  }
-  
+
+export
+function submit(
+  indic_index: number,
+  inputs: Input[],
+  options: ArrayLike<number>,
+) {
+  const seq: Sequence = Global.tulip_sequence;
+  return seq.Push(indic_index, inputs, options);
+}
+
 export
 function sequence<T extends Task>(func: () => T) {
   const seq = new Sequence<T>();
