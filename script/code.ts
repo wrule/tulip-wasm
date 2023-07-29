@@ -58,7 +58,7 @@ function ${this.indic.name}(${this.argsCode}) {
  */
 export
 function ${this.indic.name}_start(${this.optionsCode}) {
-  return run_get_start(${this.indic.index}, [${
+  return start(${this.indic.index}, [${
     this.names(this.indic.option_names, this.options ? 'options' : '')
   }]);
 }
