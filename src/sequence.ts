@@ -89,12 +89,12 @@ class Sequence<T extends Task = Task> {
     return RunResult(indic, outputs) as SequenceResult<T['outputs']>;
   }
 
-  public RunOnce() {
-    const result = this.Run();
+  public Free() {
+    if (this.tasks.length < 1) throw 'tasks is empty';
     const first = this.tasks[0];
     const last = this.tasks[this.tasks.length - 1];
     this.tulipx._erase_batch(first.id, last.id, 0);
-    return result;
+    this.tasks = [];
   }
 }
 
