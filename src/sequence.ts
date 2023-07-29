@@ -1,3 +1,4 @@
+import { IsUnion } from './utils';
 
 export
 interface InputMap {
@@ -21,3 +22,8 @@ interface Task {
   inputs: InputsMap,
   outputs: InputsMap,
 }
+
+export
+type Result<T extends InputsMap> = IsUnion<keyof T> extends true ?
+  { [key in keyof T]: Float64Array } :
+  Float64Array;
