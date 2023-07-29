@@ -118,5 +118,3 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
     Global.tulipx_sequence = null;
     return seq;
   }
-  
-
