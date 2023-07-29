@@ -51,8 +51,7 @@ class Sequence<T extends Task = Task> {
     options: ArrayLike<number>,
   ) {
     if (this.size == null)
-      this.size =
-        (inputs.find((input) => IsArrayLike(input)) as ArrayLike<number>)?.length;
+      this.size = (inputs.find((input) => IsArrayLike(input)) as ArrayLike<number>)?.length;
     if (this.size == null) throw 'size';
     const id = this.tulipx._push(indic_index, this.size, 0);
     inputs.forEach((input, index) => {
