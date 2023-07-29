@@ -47,7 +47,11 @@ function ${this.indic.name}(${this.argsCode}) {
     this.names(this.indic.input_names, '')
   }], [${
     this.names(this.indic.option_names, this.options ? 'options' : '')
-  }], align);
+  }], align) as ${
+    this.outputs ?
+      `{ ${this.names(this.indic.output_names, 'Float64Array')} }` :
+      'Float64Array'
+  };
 }
     `.trim();
   }
