@@ -13,10 +13,11 @@ class Code {
     return this.indic.outputs > 1;
   }
 
-  private names(list: string[], type: 'number' | 'number[]' | 'options' | 'outputs' | '' = 'number') {
+  private names(list: string[], type: 'number' | 'number[]' | 'Float64Array' | 'options' | 'outputs' | '' = 'number') {
     return list.map((name, index) => {
       if (type === 'number') return `${name}: number`;
       if (type === 'number[]') return `${name}: number[]`;
+      if (type === 'Float64Array') return `${name}: Float64Array`;
       if (type === 'options') return `options.${name}`;
       if (type === 'outputs') return `${name}: outputs[${index}]`;
       return name;
