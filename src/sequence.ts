@@ -24,6 +24,6 @@ interface Task {
 }
 
 export
-type Result<T extends InputsMap> = IsUnion<keyof T> extends true ?
-  { [key in keyof T]: Float64Array } :
+type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
+  { [name in keyof T]: Float64Array } :
   Float64Array;
