@@ -1,3 +1,4 @@
+import { documents } from './meta';
 import { Global, IsArrayLike, IsUnion } from './utils';
 
 export
@@ -66,8 +67,8 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
       this.tulipx._set_array(this.tulipx._options(id), options);
       const task: Task = {
         id, indic_index,
-        inputs: this.inputs_map(indicators[indic_index].input_names, id, 1),
-        outputs: this.inputs_map(indicators[indic_index].output_names, id, 0),
+        inputs: this.inputs_map(documents[indic_index].input_names, id, 1),
+        outputs: this.inputs_map(documents[indic_index].output_names, id, 0),
       };
       this.tasks.push(task);
       return task;
@@ -78,7 +79,7 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
       const first = this.tasks[0];
       const last = this.tasks[this.tasks.length - 1];
       this.tulipx._run_batch(first.id, last.id);
-      const indic = indicators[last.indic_index];
+      const indic = documents[last.indic_index];
       const outputs_size = indic.outputs;
       const outputs = Array(outputs_size).fill(0)
         .map((_, index) => this.tulipx._get_array(
