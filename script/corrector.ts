@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { Indicator } from '../src/indicator';
 
 const tasks = {
   'add': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
@@ -9,19 +10,6 @@ const tasks = {
   'crossover': (indic: Indicator) => indic.input_names = ['real1', 'real2'],
   'var': (indic: Indicator) => indic.name = '_var',
 };
-
-interface Indicator {
-  index: number;
-  name: string;
-  full_name: string;
-  type: number;
-  inputs: number;
-  options: number;
-  outputs: number;
-  input_names: string[];
-  option_names: string[];
-  output_names: string[];
-}
 
 function main() {
   const filepath = process.argv[2];
