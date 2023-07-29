@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { Indicator } from '../src/indicator';
+import { Indicator } from '../src/meta';
 
 const tasks = {
   'add': (indic: Indicator) => indic.input_names = ['real1', 'real2'],

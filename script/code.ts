@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { Indicator } from './meta';
+import { Indicator } from '../src/meta';
 import indicators from './indicators.json';
 
 export
