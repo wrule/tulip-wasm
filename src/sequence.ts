@@ -1,4 +1,4 @@
-import { documents } from './meta';
+import { TulipX, documents } from './meta';
 import { Global, IsArrayLike, IsUnion } from './utils';
 
 export
