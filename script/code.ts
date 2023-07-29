@@ -3,7 +3,7 @@ import { Indicator, documents } from '../src/meta';
 
 export
 class Code {
-  public constructor(private readonly ind: Indicator) { }
+  public constructor(private readonly indic: Indicator) { }
 
   private get options() {
     return this.indic.options > 1;
