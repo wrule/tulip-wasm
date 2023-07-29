@@ -79,7 +79,7 @@ ${documents.map((ind) => new Code(ind).Code()).join('\n\n')}
 
 ${documents.map((ind) => new Code(ind).CodeStart()).join('\n\n')}
   `.trim() + '\n';
-  fs.writeFileSync('src/indicators.ts', full_code, 'utf8');
+  fs.writeFileSync('src/methods.ts', full_code, 'utf8');
 }
 
 main();
