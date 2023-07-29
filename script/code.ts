@@ -72,12 +72,13 @@ function ${this.indic.name}_start(${this.optionsCode}) {
 
 function main() {
   const full_code = `
-export * from './meta';
 import { tulip_promise, run_alone_promise, run_alone_sync, run_get_start } from './meta';
 
 ${documents.map((ind) => new Code(ind).Code()).join('\n\n')}
 
 ${documents.map((ind) => new Code(ind).CodeStart()).join('\n\n')}
+
+export * from './meta';
   `.trim() + '\n';
   fs.writeFileSync('src/methods.ts', full_code, 'utf8');
 }
