@@ -73,7 +73,7 @@ class Sequence<T extends Task = Task> {
   }
 
   public Run() {
-    if (this.tasks.length < 1) throw 'tasks';
+    if (this.tasks.length < 1) throw 'tasks is empty';
     const first = this.tasks[0];
     const last = this.tasks[this.tasks.length - 1];
     this.tulipx._run_batch(first.id, last.id);
