@@ -1,4 +1,4 @@
-import { start, run, _align, init } from './meta';
+import { run, _align, init } from '.';
 
 async function dev() {
   await init();
