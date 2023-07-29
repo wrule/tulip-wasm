@@ -54,7 +54,7 @@ function ${this.indic.name}(${this.argsCode}) {
   public CodeStart() {
     return `
 /**
- * ${this.indic.full_name}
+ * Get ${this.indic.full_name} Start Index
  */
 export
 function ${this.indic.name}_start(${this.optionsCode}) {
