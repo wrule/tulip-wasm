@@ -110,11 +110,11 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
     return seq.Push(indic_index, inputs, options);
   }
   
-  export
-  function sequence<T extends Task>(func: () => T) {
-    const seq = new Sequence<T>();
-    Global.tulipx_sequence = seq;
-    func();
-    Global.tulipx_sequence = null;
-    return seq;
-  }
+export
+function sequence<T extends Task>(func: () => T) {
+  const seq = new Sequence<T>();
+  Global.tulip_sequence = seq;
+  func();
+  Global.tulip_sequence = null;
+  return seq;
+}
