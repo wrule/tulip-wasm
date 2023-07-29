@@ -42,11 +42,11 @@ class Code {
  */
 export
 function ${this.indic.name}(${this.argsCode}) {
-  const outputs = run_alone_sync(${this.indic.index}, [${
+  const outputs = run(${this.indic.index}, [${
     this.names(this.indic.input_names, '')
   }], [${
     this.names(this.indic.option_names, this.options ? 'options' : '')
-  }], ${this.indic.outputs}, align);
+  }], align);
   return ${this.outputs ?
     `{ ${this.names(this.indic.output_names, 'outputs')} }` :
     'outputs[0]'
@@ -72,7 +72,7 @@ function ${this.indic.name}_start(${this.optionsCode}) {
 
 function main() {
   const full_code = `
-import { tulip_promise, run_alone_promise, run_alone_sync, run_get_start } from './meta';
+import { run, start } from './meta';
 
 ${documents.map((ind) => new Code(ind).Code()).join('\n\n')}
 
