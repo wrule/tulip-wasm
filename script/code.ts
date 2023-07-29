@@ -36,6 +36,11 @@ class Code {
     return [inputs, this.optionsCode, align].filter((item) => item).join(', ');
   }
 
+  private get argsCodeSubmit() {
+    const inputs = this.names(this.indic.input_names, 'number[]');
+    return [inputs, this.optionsCode].filter((item) => item).join(', ');
+  }
+
   public CodeRun() {
     return `
 /**
