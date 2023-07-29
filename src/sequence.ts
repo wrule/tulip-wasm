@@ -1,4 +1,4 @@
-import { IsArrayLike, IsUnion } from './utils';
+import { Global, IsArrayLike, IsUnion } from './utils';
 
 export
 interface InputMap {
