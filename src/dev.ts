@@ -6,7 +6,7 @@ const registry = new FinalizationRegistry((value) => {
 });
 
 function func() {
-  const mem = Array(1e4).fill(0).map(() => Math.random());
+  const mem = { name: '你好，世界' };
   registry.register(mem, 123);
 }
 
@@ -16,7 +16,7 @@ async function dev() {
   console.time('gc');
   let list: number[] = [];
   setInterval(() => {
-    wasm._mm(1e4);
+    wasm._mm(1e5);
     // list.push(...Array(1e4).fill(0).map(() => Math.random()));
     // console.log(list.length);
   }, 100);
