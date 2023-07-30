@@ -10,6 +10,7 @@ function func() {
 }
 
 async function dev() {
+  const wasm = await t.init();
   func();
   let list: number[] = [];
   setInterval(() => {
@@ -17,7 +18,6 @@ async function dev() {
     console.log(list.length);
   }, 100);
   return;
-  await t.init();
   const list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   const list2 = Array(100000).fill(0).map(() => Math.random() * 1000);
 
