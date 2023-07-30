@@ -77,8 +77,8 @@ function ${this.indic.name}_q(${this.argsCodeSubmit}) {
   }]) as {
     id: number,
     indic_index: number,
-    inputs: InputsMap,
-    outputs: InputsMap,
+    inputs: { ${this.names(this.indic.input_names, 'InputMap')} },
+    outputs: { ${this.names(this.indic.output_names, 'InputMap')} },
   };
 }
     `.trim();
