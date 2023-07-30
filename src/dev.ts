@@ -1,7 +1,21 @@
 import * as t from '.';
 
+const registry = new FinalizationRegistry((value) => {
+  console.log('垃圾回收了', value);
+});
+
+function func() {
+  const mem = Array(1e4).fill(0).map(() => Math.random());
+  registry.register(mem, 123);
+}
+
 async function dev() {
-  console.log(FinalizationRegistry);
+  func();
+  let list: number[] = [];
+  setInterval(() => {
+    list.push(...Array(1e4).fill(0).map(() => Math.random()));
+    console.log(list.length);
+  }, 100);
   return;
   await t.init();
   const list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
