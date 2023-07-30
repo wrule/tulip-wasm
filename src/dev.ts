@@ -12,10 +12,6 @@ async function dev() {
   });
   const result = seq.Run();
   console.log(Date.now() - old_time, Object.keys(result));
-
-  // const old_time = Date.now();
-  // const result = run(72, [list2], [10]);
-  // console.log(Date.now() - old_time);
 }
 
 dev();
