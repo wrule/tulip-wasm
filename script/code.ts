@@ -100,7 +100,7 @@ function ${this.indic.name}_start(${this.optionsCode}) {
 
 function main() {
   const full_code = `
-import { run, start, submit, Input } from './meta';
+import { run, start, submit, Input, InputsMap } from './meta';
 
 ${documents.map((ind) => new Code(ind).CodeRun()).join('\n\n')}
 
