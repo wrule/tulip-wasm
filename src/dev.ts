@@ -1,17 +1,16 @@
-import { run, _align, init, submit, sequence } from '.';
+import * as tulip from '.';
 
 async function dev() {
-  await init();
+  await tulip.init();
   const list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  const list2 = Array(100000).fill(0).map(() => Math.random() * 1000);
+  const list2 = Array(10000000).fill(0).map(() => Math.random() * 1000);
 
   const old_time = Date.now();
-  const seq = sequence(() => {
-    const a = submit(69, [list2], [45]);
-    return submit(76, [a.outputs.rsi, a.outputs.rsi, a.outputs.rsi], [13, 32, 45]);
+  const seq = tulip.sequence(() => {
+    return tulip.sma_q(list2, 3);
   });
   const result = seq.Run();
-  console.log(Date.now() - old_time, Object.keys(result));
+  console.log(Date.now() - old_time, result.length);
 }
 
 dev();
