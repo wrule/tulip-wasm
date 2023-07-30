@@ -1,10 +1,10 @@
-import { run, start } from './meta';
+import { run, start, submit, Input, InputMap, InputsMap } from './meta';
 
 /**
  * Vector Absolute Value
  */
 export
-function abs(real: number[], align: boolean | number = false) {
+function abs(real: ArrayLike<number>, align: boolean | number = false) {
   return run(0, [real], [], align) as Float64Array;
 }
 
@@ -12,7 +12,7 @@ function abs(real: number[], align: boolean | number = false) {
  * Vector Arccosine
  */
 export
-function acos(real: number[], align: boolean | number = false) {
+function acos(real: ArrayLike<number>, align: boolean | number = false) {
   return run(1, [real], [], align) as Float64Array;
 }
 
@@ -20,7 +20,7 @@ function acos(real: number[], align: boolean | number = false) {
  * Accumulation/Distribution Line
  */
 export
-function ad(high: number[], low: number[], close: number[], volume: number[], align: boolean | number = false) {
+function ad(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, volume: ArrayLike<number>, align: boolean | number = false) {
   return run(2, [high, low, close, volume], [], align) as Float64Array;
 }
 
@@ -28,7 +28,7 @@ function ad(high: number[], low: number[], close: number[], volume: number[], al
  * Vector Addition
  */
 export
-function add(real1: number[], real2: number[], align: boolean | number = false) {
+function add(real1: ArrayLike<number>, real2: ArrayLike<number>, align: boolean | number = false) {
   return run(3, [real1, real2], [], align) as Float64Array;
 }
 
@@ -36,7 +36,7 @@ function add(real1: number[], real2: number[], align: boolean | number = false) 
  * Accumulation/Distribution Oscillator
  */
 export
-function adosc(high: number[], low: number[], close: number[], volume: number[], options: { short_period: number, long_period: number }, align: boolean | number = false) {
+function adosc(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, volume: ArrayLike<number>, options: { short_period: number, long_period: number }, align: boolean | number = false) {
   return run(4, [high, low, close, volume], [options.short_period, options.long_period], align) as Float64Array;
 }
 
@@ -44,7 +44,7 @@ function adosc(high: number[], low: number[], close: number[], volume: number[],
  * Average Directional Movement Index
  */
 export
-function adx(high: number[], low: number[], period: number, align: boolean | number = false) {
+function adx(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(5, [high, low], [period], align) as Float64Array;
 }
 
@@ -52,7 +52,7 @@ function adx(high: number[], low: number[], period: number, align: boolean | num
  * Average Directional Movement Rating
  */
 export
-function adxr(high: number[], low: number[], period: number, align: boolean | number = false) {
+function adxr(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(6, [high, low], [period], align) as Float64Array;
 }
 
@@ -60,7 +60,7 @@ function adxr(high: number[], low: number[], period: number, align: boolean | nu
  * Awesome Oscillator
  */
 export
-function ao(high: number[], low: number[], align: boolean | number = false) {
+function ao(high: ArrayLike<number>, low: ArrayLike<number>, align: boolean | number = false) {
   return run(7, [high, low], [], align) as Float64Array;
 }
 
@@ -68,7 +68,7 @@ function ao(high: number[], low: number[], align: boolean | number = false) {
  * Absolute Price Oscillator
  */
 export
-function apo(real: number[], options: { short_period: number, long_period: number }, align: boolean | number = false) {
+function apo(real: ArrayLike<number>, options: { short_period: number, long_period: number }, align: boolean | number = false) {
   return run(8, [real], [options.short_period, options.long_period], align) as Float64Array;
 }
 
@@ -76,7 +76,7 @@ function apo(real: number[], options: { short_period: number, long_period: numbe
  * Aroon
  */
 export
-function aroon(high: number[], low: number[], period: number, align: boolean | number = false) {
+function aroon(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(9, [high, low], [period], align) as { aroon_down: Float64Array, aroon_up: Float64Array };
 }
 
@@ -84,7 +84,7 @@ function aroon(high: number[], low: number[], period: number, align: boolean | n
  * Aroon Oscillator
  */
 export
-function aroonosc(high: number[], low: number[], period: number, align: boolean | number = false) {
+function aroonosc(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(10, [high, low], [period], align) as Float64Array;
 }
 
@@ -92,7 +92,7 @@ function aroonosc(high: number[], low: number[], period: number, align: boolean 
  * Vector Arcsine
  */
 export
-function asin(real: number[], align: boolean | number = false) {
+function asin(real: ArrayLike<number>, align: boolean | number = false) {
   return run(11, [real], [], align) as Float64Array;
 }
 
@@ -100,7 +100,7 @@ function asin(real: number[], align: boolean | number = false) {
  * Vector Arctangent
  */
 export
-function atan(real: number[], align: boolean | number = false) {
+function atan(real: ArrayLike<number>, align: boolean | number = false) {
   return run(12, [real], [], align) as Float64Array;
 }
 
@@ -108,7 +108,7 @@ function atan(real: number[], align: boolean | number = false) {
  * Average True Range
  */
 export
-function atr(high: number[], low: number[], close: number[], period: number, align: boolean | number = false) {
+function atr(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(13, [high, low, close], [period], align) as Float64Array;
 }
 
@@ -116,7 +116,7 @@ function atr(high: number[], low: number[], close: number[], period: number, ali
  * Average Price
  */
 export
-function avgprice(open: number[], high: number[], low: number[], close: number[], align: boolean | number = false) {
+function avgprice(open: ArrayLike<number>, high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, align: boolean | number = false) {
   return run(14, [open, high, low, close], [], align) as Float64Array;
 }
 
@@ -124,7 +124,7 @@ function avgprice(open: number[], high: number[], low: number[], close: number[]
  * Bollinger Bands
  */
 export
-function bbands(real: number[], options: { period: number, stddev: number }, align: boolean | number = false) {
+function bbands(real: ArrayLike<number>, options: { period: number, stddev: number }, align: boolean | number = false) {
   return run(15, [real], [options.period, options.stddev], align) as { bbands_lower: Float64Array, bbands_middle: Float64Array, bbands_upper: Float64Array };
 }
 
@@ -132,7 +132,7 @@ function bbands(real: number[], options: { period: number, stddev: number }, ali
  * Balance of Power
  */
 export
-function bop(open: number[], high: number[], low: number[], close: number[], align: boolean | number = false) {
+function bop(open: ArrayLike<number>, high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, align: boolean | number = false) {
   return run(16, [open, high, low, close], [], align) as Float64Array;
 }
 
@@ -140,7 +140,7 @@ function bop(open: number[], high: number[], low: number[], close: number[], ali
  * Commodity Channel Index
  */
 export
-function cci(high: number[], low: number[], close: number[], period: number, align: boolean | number = false) {
+function cci(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(17, [high, low, close], [period], align) as Float64Array;
 }
 
@@ -148,7 +148,7 @@ function cci(high: number[], low: number[], close: number[], period: number, ali
  * Vector Ceiling
  */
 export
-function ceil(real: number[], align: boolean | number = false) {
+function ceil(real: ArrayLike<number>, align: boolean | number = false) {
   return run(18, [real], [], align) as Float64Array;
 }
 
@@ -156,7 +156,7 @@ function ceil(real: number[], align: boolean | number = false) {
  * Chande Momentum Oscillator
  */
 export
-function cmo(real: number[], period: number, align: boolean | number = false) {
+function cmo(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(19, [real], [period], align) as Float64Array;
 }
 
@@ -164,7 +164,7 @@ function cmo(real: number[], period: number, align: boolean | number = false) {
  * Vector Cosine
  */
 export
-function cos(real: number[], align: boolean | number = false) {
+function cos(real: ArrayLike<number>, align: boolean | number = false) {
   return run(20, [real], [], align) as Float64Array;
 }
 
@@ -172,7 +172,7 @@ function cos(real: number[], align: boolean | number = false) {
  * Vector Hyperbolic Cosine
  */
 export
-function cosh(real: number[], align: boolean | number = false) {
+function cosh(real: ArrayLike<number>, align: boolean | number = false) {
   return run(21, [real], [], align) as Float64Array;
 }
 
@@ -180,7 +180,7 @@ function cosh(real: number[], align: boolean | number = false) {
  * Crossany
  */
 export
-function crossany(real1: number[], real2: number[], align: boolean | number = false) {
+function crossany(real1: ArrayLike<number>, real2: ArrayLike<number>, align: boolean | number = false) {
   return run(22, [real1, real2], [], align) as Float64Array;
 }
 
@@ -188,7 +188,7 @@ function crossany(real1: number[], real2: number[], align: boolean | number = fa
  * Crossover
  */
 export
-function crossover(real1: number[], real2: number[], align: boolean | number = false) {
+function crossover(real1: ArrayLike<number>, real2: ArrayLike<number>, align: boolean | number = false) {
   return run(23, [real1, real2], [], align) as Float64Array;
 }
 
@@ -196,7 +196,7 @@ function crossover(real1: number[], real2: number[], align: boolean | number = f
  * Chaikins Volatility
  */
 export
-function cvi(high: number[], low: number[], period: number, align: boolean | number = false) {
+function cvi(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(24, [high, low], [period], align) as Float64Array;
 }
 
@@ -204,7 +204,7 @@ function cvi(high: number[], low: number[], period: number, align: boolean | num
  * Linear Decay
  */
 export
-function decay(real: number[], period: number, align: boolean | number = false) {
+function decay(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(25, [real], [period], align) as Float64Array;
 }
 
@@ -212,7 +212,7 @@ function decay(real: number[], period: number, align: boolean | number = false) 
  * Double Exponential Moving Average
  */
 export
-function dema(real: number[], period: number, align: boolean | number = false) {
+function dema(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(26, [real], [period], align) as Float64Array;
 }
 
@@ -220,7 +220,7 @@ function dema(real: number[], period: number, align: boolean | number = false) {
  * Directional Indicator
  */
 export
-function di(high: number[], low: number[], close: number[], period: number, align: boolean | number = false) {
+function di(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(27, [high, low, close], [period], align) as { plus_di: Float64Array, minus_di: Float64Array };
 }
 
@@ -228,7 +228,7 @@ function di(high: number[], low: number[], close: number[], period: number, alig
  * Vector Division
  */
 export
-function div(real1: number[], real2: number[], align: boolean | number = false) {
+function div(real1: ArrayLike<number>, real2: ArrayLike<number>, align: boolean | number = false) {
   return run(28, [real1, real2], [], align) as Float64Array;
 }
 
@@ -236,7 +236,7 @@ function div(real1: number[], real2: number[], align: boolean | number = false) 
  * Directional Movement
  */
 export
-function dm(high: number[], low: number[], period: number, align: boolean | number = false) {
+function dm(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(29, [high, low], [period], align) as { plus_dm: Float64Array, minus_dm: Float64Array };
 }
 
@@ -244,7 +244,7 @@ function dm(high: number[], low: number[], period: number, align: boolean | numb
  * Detrended Price Oscillator
  */
 export
-function dpo(real: number[], period: number, align: boolean | number = false) {
+function dpo(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(30, [real], [period], align) as Float64Array;
 }
 
@@ -252,7 +252,7 @@ function dpo(real: number[], period: number, align: boolean | number = false) {
  * Directional Movement Index
  */
 export
-function dx(high: number[], low: number[], period: number, align: boolean | number = false) {
+function dx(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(31, [high, low], [period], align) as Float64Array;
 }
 
@@ -260,7 +260,7 @@ function dx(high: number[], low: number[], period: number, align: boolean | numb
  * Exponential Decay
  */
 export
-function edecay(real: number[], period: number, align: boolean | number = false) {
+function edecay(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(32, [real], [period], align) as Float64Array;
 }
 
@@ -268,7 +268,7 @@ function edecay(real: number[], period: number, align: boolean | number = false)
  * Exponential Moving Average
  */
 export
-function ema(real: number[], period: number, align: boolean | number = false) {
+function ema(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(33, [real], [period], align) as Float64Array;
 }
 
@@ -276,7 +276,7 @@ function ema(real: number[], period: number, align: boolean | number = false) {
  * Ease of Movement
  */
 export
-function emv(high: number[], low: number[], volume: number[], align: boolean | number = false) {
+function emv(high: ArrayLike<number>, low: ArrayLike<number>, volume: ArrayLike<number>, align: boolean | number = false) {
   return run(34, [high, low, volume], [], align) as Float64Array;
 }
 
@@ -284,7 +284,7 @@ function emv(high: number[], low: number[], volume: number[], align: boolean | n
  * Vector Exponential
  */
 export
-function exp(real: number[], align: boolean | number = false) {
+function exp(real: ArrayLike<number>, align: boolean | number = false) {
   return run(35, [real], [], align) as Float64Array;
 }
 
@@ -292,7 +292,7 @@ function exp(real: number[], align: boolean | number = false) {
  * Fisher Transform
  */
 export
-function fisher(high: number[], low: number[], period: number, align: boolean | number = false) {
+function fisher(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(36, [high, low], [period], align) as { fisher: Float64Array, fisher_signal: Float64Array };
 }
 
@@ -300,7 +300,7 @@ function fisher(high: number[], low: number[], period: number, align: boolean | 
  * Vector Floor
  */
 export
-function floor(real: number[], align: boolean | number = false) {
+function floor(real: ArrayLike<number>, align: boolean | number = false) {
   return run(37, [real], [], align) as Float64Array;
 }
 
@@ -308,7 +308,7 @@ function floor(real: number[], align: boolean | number = false) {
  * Forecast Oscillator
  */
 export
-function fosc(real: number[], period: number, align: boolean | number = false) {
+function fosc(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(38, [real], [period], align) as Float64Array;
 }
 
@@ -316,7 +316,7 @@ function fosc(real: number[], period: number, align: boolean | number = false) {
  * Hull Moving Average
  */
 export
-function hma(real: number[], period: number, align: boolean | number = false) {
+function hma(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(39, [real], [period], align) as Float64Array;
 }
 
@@ -324,7 +324,7 @@ function hma(real: number[], period: number, align: boolean | number = false) {
  * Kaufman Adaptive Moving Average
  */
 export
-function kama(real: number[], period: number, align: boolean | number = false) {
+function kama(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(40, [real], [period], align) as Float64Array;
 }
 
@@ -332,7 +332,7 @@ function kama(real: number[], period: number, align: boolean | number = false) {
  * Klinger Volume Oscillator
  */
 export
-function kvo(high: number[], low: number[], close: number[], volume: number[], options: { short_period: number, long_period: number }, align: boolean | number = false) {
+function kvo(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, volume: ArrayLike<number>, options: { short_period: number, long_period: number }, align: boolean | number = false) {
   return run(41, [high, low, close, volume], [options.short_period, options.long_period], align) as Float64Array;
 }
 
@@ -340,7 +340,7 @@ function kvo(high: number[], low: number[], close: number[], volume: number[], o
  * Lag
  */
 export
-function lag(real: number[], period: number, align: boolean | number = false) {
+function lag(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(42, [real], [period], align) as Float64Array;
 }
 
@@ -348,7 +348,7 @@ function lag(real: number[], period: number, align: boolean | number = false) {
  * Linear Regression
  */
 export
-function linreg(real: number[], period: number, align: boolean | number = false) {
+function linreg(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(43, [real], [period], align) as Float64Array;
 }
 
@@ -356,7 +356,7 @@ function linreg(real: number[], period: number, align: boolean | number = false)
  * Linear Regression Intercept
  */
 export
-function linregintercept(real: number[], period: number, align: boolean | number = false) {
+function linregintercept(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(44, [real], [period], align) as Float64Array;
 }
 
@@ -364,7 +364,7 @@ function linregintercept(real: number[], period: number, align: boolean | number
  * Linear Regression Slope
  */
 export
-function linregslope(real: number[], period: number, align: boolean | number = false) {
+function linregslope(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(45, [real], [period], align) as Float64Array;
 }
 
@@ -372,7 +372,7 @@ function linregslope(real: number[], period: number, align: boolean | number = f
  * Vector Natural Log
  */
 export
-function ln(real: number[], align: boolean | number = false) {
+function ln(real: ArrayLike<number>, align: boolean | number = false) {
   return run(46, [real], [], align) as Float64Array;
 }
 
@@ -380,7 +380,7 @@ function ln(real: number[], align: boolean | number = false) {
  * Vector Base-10 Log
  */
 export
-function log10(real: number[], align: boolean | number = false) {
+function log10(real: ArrayLike<number>, align: boolean | number = false) {
   return run(47, [real], [], align) as Float64Array;
 }
 
@@ -388,7 +388,7 @@ function log10(real: number[], align: boolean | number = false) {
  * Moving Average Convergence/Divergence
  */
 export
-function macd(real: number[], options: { short_period: number, long_period: number, signal_period: number }, align: boolean | number = false) {
+function macd(real: ArrayLike<number>, options: { short_period: number, long_period: number, signal_period: number }, align: boolean | number = false) {
   return run(48, [real], [options.short_period, options.long_period, options.signal_period], align) as { macd: Float64Array, macd_signal: Float64Array, macd_histogram: Float64Array };
 }
 
@@ -396,7 +396,7 @@ function macd(real: number[], options: { short_period: number, long_period: numb
  * Market Facilitation Index
  */
 export
-function marketfi(high: number[], low: number[], volume: number[], align: boolean | number = false) {
+function marketfi(high: ArrayLike<number>, low: ArrayLike<number>, volume: ArrayLike<number>, align: boolean | number = false) {
   return run(49, [high, low, volume], [], align) as Float64Array;
 }
 
@@ -404,7 +404,7 @@ function marketfi(high: number[], low: number[], volume: number[], align: boolea
  * Mass Index
  */
 export
-function mass(high: number[], low: number[], period: number, align: boolean | number = false) {
+function mass(high: ArrayLike<number>, low: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(50, [high, low], [period], align) as Float64Array;
 }
 
@@ -412,7 +412,7 @@ function mass(high: number[], low: number[], period: number, align: boolean | nu
  * Maximum In Period
  */
 export
-function max(real: number[], period: number, align: boolean | number = false) {
+function max(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(51, [real], [period], align) as Float64Array;
 }
 
@@ -420,7 +420,7 @@ function max(real: number[], period: number, align: boolean | number = false) {
  * Mean Deviation Over Period
  */
 export
-function md(real: number[], period: number, align: boolean | number = false) {
+function md(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(52, [real], [period], align) as Float64Array;
 }
 
@@ -428,7 +428,7 @@ function md(real: number[], period: number, align: boolean | number = false) {
  * Median Price
  */
 export
-function medprice(high: number[], low: number[], align: boolean | number = false) {
+function medprice(high: ArrayLike<number>, low: ArrayLike<number>, align: boolean | number = false) {
   return run(53, [high, low], [], align) as Float64Array;
 }
 
@@ -436,7 +436,7 @@ function medprice(high: number[], low: number[], align: boolean | number = false
  * Money Flow Index
  */
 export
-function mfi(high: number[], low: number[], close: number[], volume: number[], period: number, align: boolean | number = false) {
+function mfi(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, volume: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(54, [high, low, close, volume], [period], align) as Float64Array;
 }
 
@@ -444,7 +444,7 @@ function mfi(high: number[], low: number[], close: number[], volume: number[], p
  * Minimum In Period
  */
 export
-function min(real: number[], period: number, align: boolean | number = false) {
+function min(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(55, [real], [period], align) as Float64Array;
 }
 
@@ -452,7 +452,7 @@ function min(real: number[], period: number, align: boolean | number = false) {
  * Momentum
  */
 export
-function mom(real: number[], period: number, align: boolean | number = false) {
+function mom(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(56, [real], [period], align) as Float64Array;
 }
 
@@ -460,7 +460,7 @@ function mom(real: number[], period: number, align: boolean | number = false) {
  * Mesa Sine Wave
  */
 export
-function msw(real: number[], period: number, align: boolean | number = false) {
+function msw(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(57, [real], [period], align) as { msw_sine: Float64Array, msw_lead: Float64Array };
 }
 
@@ -468,7 +468,7 @@ function msw(real: number[], period: number, align: boolean | number = false) {
  * Vector Multiplication
  */
 export
-function mul(real1: number[], real2: number[], align: boolean | number = false) {
+function mul(real1: ArrayLike<number>, real2: ArrayLike<number>, align: boolean | number = false) {
   return run(58, [real1, real2], [], align) as Float64Array;
 }
 
@@ -476,7 +476,7 @@ function mul(real1: number[], real2: number[], align: boolean | number = false) 
  * Normalized Average True Range
  */
 export
-function natr(high: number[], low: number[], close: number[], period: number, align: boolean | number = false) {
+function natr(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(59, [high, low, close], [period], align) as Float64Array;
 }
 
@@ -484,7 +484,7 @@ function natr(high: number[], low: number[], close: number[], period: number, al
  * Negative Volume Index
  */
 export
-function nvi(close: number[], volume: number[], align: boolean | number = false) {
+function nvi(close: ArrayLike<number>, volume: ArrayLike<number>, align: boolean | number = false) {
   return run(60, [close, volume], [], align) as Float64Array;
 }
 
@@ -492,7 +492,7 @@ function nvi(close: number[], volume: number[], align: boolean | number = false)
  * On Balance Volume
  */
 export
-function obv(close: number[], volume: number[], align: boolean | number = false) {
+function obv(close: ArrayLike<number>, volume: ArrayLike<number>, align: boolean | number = false) {
   return run(61, [close, volume], [], align) as Float64Array;
 }
 
@@ -500,7 +500,7 @@ function obv(close: number[], volume: number[], align: boolean | number = false)
  * Percentage Price Oscillator
  */
 export
-function ppo(real: number[], options: { short_period: number, long_period: number }, align: boolean | number = false) {
+function ppo(real: ArrayLike<number>, options: { short_period: number, long_period: number }, align: boolean | number = false) {
   return run(62, [real], [options.short_period, options.long_period], align) as Float64Array;
 }
 
@@ -508,7 +508,7 @@ function ppo(real: number[], options: { short_period: number, long_period: numbe
  * Parabolic SAR
  */
 export
-function psar(high: number[], low: number[], options: { acceleration_factor_step: number, acceleration_factor_maximum: number }, align: boolean | number = false) {
+function psar(high: ArrayLike<number>, low: ArrayLike<number>, options: { acceleration_factor_step: number, acceleration_factor_maximum: number }, align: boolean | number = false) {
   return run(63, [high, low], [options.acceleration_factor_step, options.acceleration_factor_maximum], align) as Float64Array;
 }
 
@@ -516,7 +516,7 @@ function psar(high: number[], low: number[], options: { acceleration_factor_step
  * Positive Volume Index
  */
 export
-function pvi(close: number[], volume: number[], align: boolean | number = false) {
+function pvi(close: ArrayLike<number>, volume: ArrayLike<number>, align: boolean | number = false) {
   return run(64, [close, volume], [], align) as Float64Array;
 }
 
@@ -524,7 +524,7 @@ function pvi(close: number[], volume: number[], align: boolean | number = false)
  * Qstick
  */
 export
-function qstick(open: number[], close: number[], period: number, align: boolean | number = false) {
+function qstick(open: ArrayLike<number>, close: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(65, [open, close], [period], align) as Float64Array;
 }
 
@@ -532,7 +532,7 @@ function qstick(open: number[], close: number[], period: number, align: boolean 
  * Rate of Change
  */
 export
-function roc(real: number[], period: number, align: boolean | number = false) {
+function roc(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(66, [real], [period], align) as Float64Array;
 }
 
@@ -540,7 +540,7 @@ function roc(real: number[], period: number, align: boolean | number = false) {
  * Rate of Change Ratio
  */
 export
-function rocr(real: number[], period: number, align: boolean | number = false) {
+function rocr(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(67, [real], [period], align) as Float64Array;
 }
 
@@ -548,7 +548,7 @@ function rocr(real: number[], period: number, align: boolean | number = false) {
  * Vector Round
  */
 export
-function round(real: number[], align: boolean | number = false) {
+function round(real: ArrayLike<number>, align: boolean | number = false) {
   return run(68, [real], [], align) as Float64Array;
 }
 
@@ -556,7 +556,7 @@ function round(real: number[], align: boolean | number = false) {
  * Relative Strength Index
  */
 export
-function rsi(real: number[], period: number, align: boolean | number = false) {
+function rsi(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(69, [real], [period], align) as Float64Array;
 }
 
@@ -564,7 +564,7 @@ function rsi(real: number[], period: number, align: boolean | number = false) {
  * Vector Sine
  */
 export
-function sin(real: number[], align: boolean | number = false) {
+function sin(real: ArrayLike<number>, align: boolean | number = false) {
   return run(70, [real], [], align) as Float64Array;
 }
 
@@ -572,7 +572,7 @@ function sin(real: number[], align: boolean | number = false) {
  * Vector Hyperbolic Sine
  */
 export
-function sinh(real: number[], align: boolean | number = false) {
+function sinh(real: ArrayLike<number>, align: boolean | number = false) {
   return run(71, [real], [], align) as Float64Array;
 }
 
@@ -580,7 +580,7 @@ function sinh(real: number[], align: boolean | number = false) {
  * Simple Moving Average
  */
 export
-function sma(real: number[], period: number, align: boolean | number = false) {
+function sma(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(72, [real], [period], align) as Float64Array;
 }
 
@@ -588,7 +588,7 @@ function sma(real: number[], period: number, align: boolean | number = false) {
  * Vector Square Root
  */
 export
-function sqrt(real: number[], align: boolean | number = false) {
+function sqrt(real: ArrayLike<number>, align: boolean | number = false) {
   return run(73, [real], [], align) as Float64Array;
 }
 
@@ -596,7 +596,7 @@ function sqrt(real: number[], align: boolean | number = false) {
  * Standard Deviation Over Period
  */
 export
-function stddev(real: number[], period: number, align: boolean | number = false) {
+function stddev(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(74, [real], [period], align) as Float64Array;
 }
 
@@ -604,7 +604,7 @@ function stddev(real: number[], period: number, align: boolean | number = false)
  * Standard Error Over Period
  */
 export
-function stderr(real: number[], period: number, align: boolean | number = false) {
+function stderr(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(75, [real], [period], align) as Float64Array;
 }
 
@@ -612,7 +612,7 @@ function stderr(real: number[], period: number, align: boolean | number = false)
  * Stochastic Oscillator
  */
 export
-function stoch(high: number[], low: number[], close: number[], options: { k_period: number, k_slowing_period: number, d_period: number }, align: boolean | number = false) {
+function stoch(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, options: { k_period: number, k_slowing_period: number, d_period: number }, align: boolean | number = false) {
   return run(76, [high, low, close], [options.k_period, options.k_slowing_period, options.d_period], align) as { stoch_k: Float64Array, stoch_d: Float64Array };
 }
 
@@ -620,7 +620,7 @@ function stoch(high: number[], low: number[], close: number[], options: { k_peri
  * Stochastic RSI
  */
 export
-function stochrsi(real: number[], period: number, align: boolean | number = false) {
+function stochrsi(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(77, [real], [period], align) as Float64Array;
 }
 
@@ -628,7 +628,7 @@ function stochrsi(real: number[], period: number, align: boolean | number = fals
  * Vector Subtraction
  */
 export
-function sub(real1: number[], real2: number[], align: boolean | number = false) {
+function sub(real1: ArrayLike<number>, real2: ArrayLike<number>, align: boolean | number = false) {
   return run(78, [real1, real2], [], align) as Float64Array;
 }
 
@@ -636,7 +636,7 @@ function sub(real1: number[], real2: number[], align: boolean | number = false) 
  * Sum Over Period
  */
 export
-function sum(real: number[], period: number, align: boolean | number = false) {
+function sum(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(79, [real], [period], align) as Float64Array;
 }
 
@@ -644,7 +644,7 @@ function sum(real: number[], period: number, align: boolean | number = false) {
  * Vector Tangent
  */
 export
-function tan(real: number[], align: boolean | number = false) {
+function tan(real: ArrayLike<number>, align: boolean | number = false) {
   return run(80, [real], [], align) as Float64Array;
 }
 
@@ -652,7 +652,7 @@ function tan(real: number[], align: boolean | number = false) {
  * Vector Hyperbolic Tangent
  */
 export
-function tanh(real: number[], align: boolean | number = false) {
+function tanh(real: ArrayLike<number>, align: boolean | number = false) {
   return run(81, [real], [], align) as Float64Array;
 }
 
@@ -660,7 +660,7 @@ function tanh(real: number[], align: boolean | number = false) {
  * Triple Exponential Moving Average
  */
 export
-function tema(real: number[], period: number, align: boolean | number = false) {
+function tema(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(82, [real], [period], align) as Float64Array;
 }
 
@@ -668,7 +668,7 @@ function tema(real: number[], period: number, align: boolean | number = false) {
  * Vector Degree Conversion
  */
 export
-function todeg(real: number[], align: boolean | number = false) {
+function todeg(real: ArrayLike<number>, align: boolean | number = false) {
   return run(83, [real], [], align) as Float64Array;
 }
 
@@ -676,7 +676,7 @@ function todeg(real: number[], align: boolean | number = false) {
  * Vector Radian Conversion
  */
 export
-function torad(real: number[], align: boolean | number = false) {
+function torad(real: ArrayLike<number>, align: boolean | number = false) {
   return run(84, [real], [], align) as Float64Array;
 }
 
@@ -684,7 +684,7 @@ function torad(real: number[], align: boolean | number = false) {
  * True Range
  */
 export
-function tr(high: number[], low: number[], close: number[], align: boolean | number = false) {
+function tr(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, align: boolean | number = false) {
   return run(85, [high, low, close], [], align) as Float64Array;
 }
 
@@ -692,7 +692,7 @@ function tr(high: number[], low: number[], close: number[], align: boolean | num
  * Triangular Moving Average
  */
 export
-function trima(real: number[], period: number, align: boolean | number = false) {
+function trima(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(86, [real], [period], align) as Float64Array;
 }
 
@@ -700,7 +700,7 @@ function trima(real: number[], period: number, align: boolean | number = false) 
  * Trix
  */
 export
-function trix(real: number[], period: number, align: boolean | number = false) {
+function trix(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(87, [real], [period], align) as Float64Array;
 }
 
@@ -708,7 +708,7 @@ function trix(real: number[], period: number, align: boolean | number = false) {
  * Vector Truncate
  */
 export
-function trunc(real: number[], align: boolean | number = false) {
+function trunc(real: ArrayLike<number>, align: boolean | number = false) {
   return run(88, [real], [], align) as Float64Array;
 }
 
@@ -716,7 +716,7 @@ function trunc(real: number[], align: boolean | number = false) {
  * Time Series Forecast
  */
 export
-function tsf(real: number[], period: number, align: boolean | number = false) {
+function tsf(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(89, [real], [period], align) as Float64Array;
 }
 
@@ -724,7 +724,7 @@ function tsf(real: number[], period: number, align: boolean | number = false) {
  * Typical Price
  */
 export
-function typprice(high: number[], low: number[], close: number[], align: boolean | number = false) {
+function typprice(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, align: boolean | number = false) {
   return run(90, [high, low, close], [], align) as Float64Array;
 }
 
@@ -732,7 +732,7 @@ function typprice(high: number[], low: number[], close: number[], align: boolean
  * Ultimate Oscillator
  */
 export
-function ultosc(high: number[], low: number[], close: number[], options: { short_period: number, medium_period: number, long_period: number }, align: boolean | number = false) {
+function ultosc(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, options: { short_period: number, medium_period: number, long_period: number }, align: boolean | number = false) {
   return run(91, [high, low, close], [options.short_period, options.medium_period, options.long_period], align) as Float64Array;
 }
 
@@ -740,7 +740,7 @@ function ultosc(high: number[], low: number[], close: number[], options: { short
  * Variance Over Period
  */
 export
-function _var(real: number[], period: number, align: boolean | number = false) {
+function _var(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(92, [real], [period], align) as Float64Array;
 }
 
@@ -748,7 +748,7 @@ function _var(real: number[], period: number, align: boolean | number = false) {
  * Vertical Horizontal Filter
  */
 export
-function vhf(real: number[], period: number, align: boolean | number = false) {
+function vhf(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(93, [real], [period], align) as Float64Array;
 }
 
@@ -756,7 +756,7 @@ function vhf(real: number[], period: number, align: boolean | number = false) {
  * Variable Index Dynamic Average
  */
 export
-function vidya(real: number[], options: { short_period: number, long_period: number, alpha: number }, align: boolean | number = false) {
+function vidya(real: ArrayLike<number>, options: { short_period: number, long_period: number, alpha: number }, align: boolean | number = false) {
   return run(94, [real], [options.short_period, options.long_period, options.alpha], align) as Float64Array;
 }
 
@@ -764,7 +764,7 @@ function vidya(real: number[], options: { short_period: number, long_period: num
  * Annualized Historical Volatility
  */
 export
-function volatility(real: number[], period: number, align: boolean | number = false) {
+function volatility(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(95, [real], [period], align) as Float64Array;
 }
 
@@ -772,7 +772,7 @@ function volatility(real: number[], period: number, align: boolean | number = fa
  * Volume Oscillator
  */
 export
-function vosc(volume: number[], options: { short_period: number, long_period: number }, align: boolean | number = false) {
+function vosc(volume: ArrayLike<number>, options: { short_period: number, long_period: number }, align: boolean | number = false) {
   return run(96, [volume], [options.short_period, options.long_period], align) as Float64Array;
 }
 
@@ -780,7 +780,7 @@ function vosc(volume: number[], options: { short_period: number, long_period: nu
  * Volume Weighted Moving Average
  */
 export
-function vwma(close: number[], volume: number[], period: number, align: boolean | number = false) {
+function vwma(close: ArrayLike<number>, volume: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(97, [close, volume], [period], align) as Float64Array;
 }
 
@@ -788,7 +788,7 @@ function vwma(close: number[], volume: number[], period: number, align: boolean 
  * Williams Accumulation/Distribution
  */
 export
-function wad(high: number[], low: number[], close: number[], align: boolean | number = false) {
+function wad(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, align: boolean | number = false) {
   return run(98, [high, low, close], [], align) as Float64Array;
 }
 
@@ -796,7 +796,7 @@ function wad(high: number[], low: number[], close: number[], align: boolean | nu
  * Weighted Close Price
  */
 export
-function wcprice(high: number[], low: number[], close: number[], align: boolean | number = false) {
+function wcprice(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, align: boolean | number = false) {
   return run(99, [high, low, close], [], align) as Float64Array;
 }
 
@@ -804,7 +804,7 @@ function wcprice(high: number[], low: number[], close: number[], align: boolean 
  * Wilders Smoothing
  */
 export
-function wilders(real: number[], period: number, align: boolean | number = false) {
+function wilders(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(100, [real], [period], align) as Float64Array;
 }
 
@@ -812,7 +812,7 @@ function wilders(real: number[], period: number, align: boolean | number = false
  * Williams %R
  */
 export
-function willr(high: number[], low: number[], close: number[], period: number, align: boolean | number = false) {
+function willr(high: ArrayLike<number>, low: ArrayLike<number>, close: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(101, [high, low, close], [period], align) as Float64Array;
 }
 
@@ -820,7 +820,7 @@ function willr(high: number[], low: number[], close: number[], period: number, a
  * Weighted Moving Average
  */
 export
-function wma(real: number[], period: number, align: boolean | number = false) {
+function wma(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(102, [real], [period], align) as Float64Array;
 }
 
@@ -828,8 +828,1360 @@ function wma(real: number[], period: number, align: boolean | number = false) {
  * Zero-Lag Exponential Moving Average
  */
 export
-function zlema(real: number[], period: number, align: boolean | number = false) {
+function zlema(real: ArrayLike<number>, period: number, align: boolean | number = false) {
   return run(103, [real], [period], align) as Float64Array;
+}
+
+/**
+ * Submit Vector Absolute Value
+ */
+export
+function abs_q(real: Input) {
+  return submit(0, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { abs: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Arccosine
+ */
+export
+function acos_q(real: Input) {
+  return submit(1, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { acos: InputMap },
+  };
+}
+
+/**
+ * Submit Accumulation/Distribution Line
+ */
+export
+function ad_q(high: Input, low: Input, close: Input, volume: Input) {
+  return submit(2, [high, low, close, volume], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
+    outputs: { ad: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Addition
+ */
+export
+function add_q(real1: Input, real2: Input) {
+  return submit(3, [real1, real2], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real1: InputMap, real2: InputMap },
+    outputs: { add: InputMap },
+  };
+}
+
+/**
+ * Submit Accumulation/Distribution Oscillator
+ */
+export
+function adosc_q(high: Input, low: Input, close: Input, volume: Input, options: { short_period: number, long_period: number }) {
+  return submit(4, [high, low, close, volume], [options.short_period, options.long_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
+    outputs: { adosc: InputMap },
+  };
+}
+
+/**
+ * Submit Average Directional Movement Index
+ */
+export
+function adx_q(high: Input, low: Input, period: number) {
+  return submit(5, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { adx: InputMap },
+  };
+}
+
+/**
+ * Submit Average Directional Movement Rating
+ */
+export
+function adxr_q(high: Input, low: Input, period: number) {
+  return submit(6, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { adxr: InputMap },
+  };
+}
+
+/**
+ * Submit Awesome Oscillator
+ */
+export
+function ao_q(high: Input, low: Input) {
+  return submit(7, [high, low], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { ao: InputMap },
+  };
+}
+
+/**
+ * Submit Absolute Price Oscillator
+ */
+export
+function apo_q(real: Input, options: { short_period: number, long_period: number }) {
+  return submit(8, [real], [options.short_period, options.long_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { apo: InputMap },
+  };
+}
+
+/**
+ * Submit Aroon
+ */
+export
+function aroon_q(high: Input, low: Input, period: number) {
+  return submit(9, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { aroon_down: InputMap, aroon_up: InputMap },
+  };
+}
+
+/**
+ * Submit Aroon Oscillator
+ */
+export
+function aroonosc_q(high: Input, low: Input, period: number) {
+  return submit(10, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { aroonosc: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Arcsine
+ */
+export
+function asin_q(real: Input) {
+  return submit(11, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { asin: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Arctangent
+ */
+export
+function atan_q(real: Input) {
+  return submit(12, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { atan: InputMap },
+  };
+}
+
+/**
+ * Submit Average True Range
+ */
+export
+function atr_q(high: Input, low: Input, close: Input, period: number) {
+  return submit(13, [high, low, close], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { atr: InputMap },
+  };
+}
+
+/**
+ * Submit Average Price
+ */
+export
+function avgprice_q(open: Input, high: Input, low: Input, close: Input) {
+  return submit(14, [open, high, low, close], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { open: InputMap, high: InputMap, low: InputMap, close: InputMap },
+    outputs: { avgprice: InputMap },
+  };
+}
+
+/**
+ * Submit Bollinger Bands
+ */
+export
+function bbands_q(real: Input, options: { period: number, stddev: number }) {
+  return submit(15, [real], [options.period, options.stddev]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { bbands_lower: InputMap, bbands_middle: InputMap, bbands_upper: InputMap },
+  };
+}
+
+/**
+ * Submit Balance of Power
+ */
+export
+function bop_q(open: Input, high: Input, low: Input, close: Input) {
+  return submit(16, [open, high, low, close], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { open: InputMap, high: InputMap, low: InputMap, close: InputMap },
+    outputs: { bop: InputMap },
+  };
+}
+
+/**
+ * Submit Commodity Channel Index
+ */
+export
+function cci_q(high: Input, low: Input, close: Input, period: number) {
+  return submit(17, [high, low, close], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { cci: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Ceiling
+ */
+export
+function ceil_q(real: Input) {
+  return submit(18, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { ceil: InputMap },
+  };
+}
+
+/**
+ * Submit Chande Momentum Oscillator
+ */
+export
+function cmo_q(real: Input, period: number) {
+  return submit(19, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { cmo: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Cosine
+ */
+export
+function cos_q(real: Input) {
+  return submit(20, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { cos: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Hyperbolic Cosine
+ */
+export
+function cosh_q(real: Input) {
+  return submit(21, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { cosh: InputMap },
+  };
+}
+
+/**
+ * Submit Crossany
+ */
+export
+function crossany_q(real1: Input, real2: Input) {
+  return submit(22, [real1, real2], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real1: InputMap, real2: InputMap },
+    outputs: { crossany: InputMap },
+  };
+}
+
+/**
+ * Submit Crossover
+ */
+export
+function crossover_q(real1: Input, real2: Input) {
+  return submit(23, [real1, real2], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real1: InputMap, real2: InputMap },
+    outputs: { crossover: InputMap },
+  };
+}
+
+/**
+ * Submit Chaikins Volatility
+ */
+export
+function cvi_q(high: Input, low: Input, period: number) {
+  return submit(24, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { cvi: InputMap },
+  };
+}
+
+/**
+ * Submit Linear Decay
+ */
+export
+function decay_q(real: Input, period: number) {
+  return submit(25, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { decay: InputMap },
+  };
+}
+
+/**
+ * Submit Double Exponential Moving Average
+ */
+export
+function dema_q(real: Input, period: number) {
+  return submit(26, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { dema: InputMap },
+  };
+}
+
+/**
+ * Submit Directional Indicator
+ */
+export
+function di_q(high: Input, low: Input, close: Input, period: number) {
+  return submit(27, [high, low, close], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { plus_di: InputMap, minus_di: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Division
+ */
+export
+function div_q(real1: Input, real2: Input) {
+  return submit(28, [real1, real2], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real1: InputMap, real2: InputMap },
+    outputs: { div: InputMap },
+  };
+}
+
+/**
+ * Submit Directional Movement
+ */
+export
+function dm_q(high: Input, low: Input, period: number) {
+  return submit(29, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { plus_dm: InputMap, minus_dm: InputMap },
+  };
+}
+
+/**
+ * Submit Detrended Price Oscillator
+ */
+export
+function dpo_q(real: Input, period: number) {
+  return submit(30, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { dpo: InputMap },
+  };
+}
+
+/**
+ * Submit Directional Movement Index
+ */
+export
+function dx_q(high: Input, low: Input, period: number) {
+  return submit(31, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { dx: InputMap },
+  };
+}
+
+/**
+ * Submit Exponential Decay
+ */
+export
+function edecay_q(real: Input, period: number) {
+  return submit(32, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { edecay: InputMap },
+  };
+}
+
+/**
+ * Submit Exponential Moving Average
+ */
+export
+function ema_q(real: Input, period: number) {
+  return submit(33, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { ema: InputMap },
+  };
+}
+
+/**
+ * Submit Ease of Movement
+ */
+export
+function emv_q(high: Input, low: Input, volume: Input) {
+  return submit(34, [high, low, volume], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, volume: InputMap },
+    outputs: { emv: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Exponential
+ */
+export
+function exp_q(real: Input) {
+  return submit(35, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { exp: InputMap },
+  };
+}
+
+/**
+ * Submit Fisher Transform
+ */
+export
+function fisher_q(high: Input, low: Input, period: number) {
+  return submit(36, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { fisher: InputMap, fisher_signal: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Floor
+ */
+export
+function floor_q(real: Input) {
+  return submit(37, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { floor: InputMap },
+  };
+}
+
+/**
+ * Submit Forecast Oscillator
+ */
+export
+function fosc_q(real: Input, period: number) {
+  return submit(38, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { fosc: InputMap },
+  };
+}
+
+/**
+ * Submit Hull Moving Average
+ */
+export
+function hma_q(real: Input, period: number) {
+  return submit(39, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { hma: InputMap },
+  };
+}
+
+/**
+ * Submit Kaufman Adaptive Moving Average
+ */
+export
+function kama_q(real: Input, period: number) {
+  return submit(40, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { kama: InputMap },
+  };
+}
+
+/**
+ * Submit Klinger Volume Oscillator
+ */
+export
+function kvo_q(high: Input, low: Input, close: Input, volume: Input, options: { short_period: number, long_period: number }) {
+  return submit(41, [high, low, close, volume], [options.short_period, options.long_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
+    outputs: { kvo: InputMap },
+  };
+}
+
+/**
+ * Submit Lag
+ */
+export
+function lag_q(real: Input, period: number) {
+  return submit(42, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { lag: InputMap },
+  };
+}
+
+/**
+ * Submit Linear Regression
+ */
+export
+function linreg_q(real: Input, period: number) {
+  return submit(43, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { linreg: InputMap },
+  };
+}
+
+/**
+ * Submit Linear Regression Intercept
+ */
+export
+function linregintercept_q(real: Input, period: number) {
+  return submit(44, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { linregintercept: InputMap },
+  };
+}
+
+/**
+ * Submit Linear Regression Slope
+ */
+export
+function linregslope_q(real: Input, period: number) {
+  return submit(45, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { linregslope: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Natural Log
+ */
+export
+function ln_q(real: Input) {
+  return submit(46, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { ln: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Base-10 Log
+ */
+export
+function log10_q(real: Input) {
+  return submit(47, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { log10: InputMap },
+  };
+}
+
+/**
+ * Submit Moving Average Convergence/Divergence
+ */
+export
+function macd_q(real: Input, options: { short_period: number, long_period: number, signal_period: number }) {
+  return submit(48, [real], [options.short_period, options.long_period, options.signal_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { macd: InputMap, macd_signal: InputMap, macd_histogram: InputMap },
+  };
+}
+
+/**
+ * Submit Market Facilitation Index
+ */
+export
+function marketfi_q(high: Input, low: Input, volume: Input) {
+  return submit(49, [high, low, volume], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, volume: InputMap },
+    outputs: { marketfi: InputMap },
+  };
+}
+
+/**
+ * Submit Mass Index
+ */
+export
+function mass_q(high: Input, low: Input, period: number) {
+  return submit(50, [high, low], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { mass: InputMap },
+  };
+}
+
+/**
+ * Submit Maximum In Period
+ */
+export
+function max_q(real: Input, period: number) {
+  return submit(51, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { max: InputMap },
+  };
+}
+
+/**
+ * Submit Mean Deviation Over Period
+ */
+export
+function md_q(real: Input, period: number) {
+  return submit(52, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { md: InputMap },
+  };
+}
+
+/**
+ * Submit Median Price
+ */
+export
+function medprice_q(high: Input, low: Input) {
+  return submit(53, [high, low], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { medprice: InputMap },
+  };
+}
+
+/**
+ * Submit Money Flow Index
+ */
+export
+function mfi_q(high: Input, low: Input, close: Input, volume: Input, period: number) {
+  return submit(54, [high, low, close, volume], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
+    outputs: { mfi: InputMap },
+  };
+}
+
+/**
+ * Submit Minimum In Period
+ */
+export
+function min_q(real: Input, period: number) {
+  return submit(55, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { min: InputMap },
+  };
+}
+
+/**
+ * Submit Momentum
+ */
+export
+function mom_q(real: Input, period: number) {
+  return submit(56, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { mom: InputMap },
+  };
+}
+
+/**
+ * Submit Mesa Sine Wave
+ */
+export
+function msw_q(real: Input, period: number) {
+  return submit(57, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { msw_sine: InputMap, msw_lead: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Multiplication
+ */
+export
+function mul_q(real1: Input, real2: Input) {
+  return submit(58, [real1, real2], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real1: InputMap, real2: InputMap },
+    outputs: { mul: InputMap },
+  };
+}
+
+/**
+ * Submit Normalized Average True Range
+ */
+export
+function natr_q(high: Input, low: Input, close: Input, period: number) {
+  return submit(59, [high, low, close], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { natr: InputMap },
+  };
+}
+
+/**
+ * Submit Negative Volume Index
+ */
+export
+function nvi_q(close: Input, volume: Input) {
+  return submit(60, [close, volume], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { close: InputMap, volume: InputMap },
+    outputs: { nvi: InputMap },
+  };
+}
+
+/**
+ * Submit On Balance Volume
+ */
+export
+function obv_q(close: Input, volume: Input) {
+  return submit(61, [close, volume], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { close: InputMap, volume: InputMap },
+    outputs: { obv: InputMap },
+  };
+}
+
+/**
+ * Submit Percentage Price Oscillator
+ */
+export
+function ppo_q(real: Input, options: { short_period: number, long_period: number }) {
+  return submit(62, [real], [options.short_period, options.long_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { ppo: InputMap },
+  };
+}
+
+/**
+ * Submit Parabolic SAR
+ */
+export
+function psar_q(high: Input, low: Input, options: { acceleration_factor_step: number, acceleration_factor_maximum: number }) {
+  return submit(63, [high, low], [options.acceleration_factor_step, options.acceleration_factor_maximum]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap },
+    outputs: { psar: InputMap },
+  };
+}
+
+/**
+ * Submit Positive Volume Index
+ */
+export
+function pvi_q(close: Input, volume: Input) {
+  return submit(64, [close, volume], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { close: InputMap, volume: InputMap },
+    outputs: { pvi: InputMap },
+  };
+}
+
+/**
+ * Submit Qstick
+ */
+export
+function qstick_q(open: Input, close: Input, period: number) {
+  return submit(65, [open, close], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { open: InputMap, close: InputMap },
+    outputs: { qstick: InputMap },
+  };
+}
+
+/**
+ * Submit Rate of Change
+ */
+export
+function roc_q(real: Input, period: number) {
+  return submit(66, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { roc: InputMap },
+  };
+}
+
+/**
+ * Submit Rate of Change Ratio
+ */
+export
+function rocr_q(real: Input, period: number) {
+  return submit(67, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { rocr: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Round
+ */
+export
+function round_q(real: Input) {
+  return submit(68, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { round: InputMap },
+  };
+}
+
+/**
+ * Submit Relative Strength Index
+ */
+export
+function rsi_q(real: Input, period: number) {
+  return submit(69, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { rsi: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Sine
+ */
+export
+function sin_q(real: Input) {
+  return submit(70, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { sin: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Hyperbolic Sine
+ */
+export
+function sinh_q(real: Input) {
+  return submit(71, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { sinh: InputMap },
+  };
+}
+
+/**
+ * Submit Simple Moving Average
+ */
+export
+function sma_q(real: Input, period: number) {
+  return submit(72, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { sma: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Square Root
+ */
+export
+function sqrt_q(real: Input) {
+  return submit(73, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { sqrt: InputMap },
+  };
+}
+
+/**
+ * Submit Standard Deviation Over Period
+ */
+export
+function stddev_q(real: Input, period: number) {
+  return submit(74, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { stddev: InputMap },
+  };
+}
+
+/**
+ * Submit Standard Error Over Period
+ */
+export
+function stderr_q(real: Input, period: number) {
+  return submit(75, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { stderr: InputMap },
+  };
+}
+
+/**
+ * Submit Stochastic Oscillator
+ */
+export
+function stoch_q(high: Input, low: Input, close: Input, options: { k_period: number, k_slowing_period: number, d_period: number }) {
+  return submit(76, [high, low, close], [options.k_period, options.k_slowing_period, options.d_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { stoch_k: InputMap, stoch_d: InputMap },
+  };
+}
+
+/**
+ * Submit Stochastic RSI
+ */
+export
+function stochrsi_q(real: Input, period: number) {
+  return submit(77, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { stochrsi: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Subtraction
+ */
+export
+function sub_q(real1: Input, real2: Input) {
+  return submit(78, [real1, real2], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real1: InputMap, real2: InputMap },
+    outputs: { sub: InputMap },
+  };
+}
+
+/**
+ * Submit Sum Over Period
+ */
+export
+function sum_q(real: Input, period: number) {
+  return submit(79, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { sum: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Tangent
+ */
+export
+function tan_q(real: Input) {
+  return submit(80, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { tan: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Hyperbolic Tangent
+ */
+export
+function tanh_q(real: Input) {
+  return submit(81, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { tanh: InputMap },
+  };
+}
+
+/**
+ * Submit Triple Exponential Moving Average
+ */
+export
+function tema_q(real: Input, period: number) {
+  return submit(82, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { tema: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Degree Conversion
+ */
+export
+function todeg_q(real: Input) {
+  return submit(83, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { degrees: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Radian Conversion
+ */
+export
+function torad_q(real: Input) {
+  return submit(84, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { radians: InputMap },
+  };
+}
+
+/**
+ * Submit True Range
+ */
+export
+function tr_q(high: Input, low: Input, close: Input) {
+  return submit(85, [high, low, close], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { tr: InputMap },
+  };
+}
+
+/**
+ * Submit Triangular Moving Average
+ */
+export
+function trima_q(real: Input, period: number) {
+  return submit(86, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { trima: InputMap },
+  };
+}
+
+/**
+ * Submit Trix
+ */
+export
+function trix_q(real: Input, period: number) {
+  return submit(87, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { trix: InputMap },
+  };
+}
+
+/**
+ * Submit Vector Truncate
+ */
+export
+function trunc_q(real: Input) {
+  return submit(88, [real], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { trunc: InputMap },
+  };
+}
+
+/**
+ * Submit Time Series Forecast
+ */
+export
+function tsf_q(real: Input, period: number) {
+  return submit(89, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { tsf: InputMap },
+  };
+}
+
+/**
+ * Submit Typical Price
+ */
+export
+function typprice_q(high: Input, low: Input, close: Input) {
+  return submit(90, [high, low, close], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { typprice: InputMap },
+  };
+}
+
+/**
+ * Submit Ultimate Oscillator
+ */
+export
+function ultosc_q(high: Input, low: Input, close: Input, options: { short_period: number, medium_period: number, long_period: number }) {
+  return submit(91, [high, low, close], [options.short_period, options.medium_period, options.long_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { ultosc: InputMap },
+  };
+}
+
+/**
+ * Submit Variance Over Period
+ */
+export
+function _var_q(real: Input, period: number) {
+  return submit(92, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { var: InputMap },
+  };
+}
+
+/**
+ * Submit Vertical Horizontal Filter
+ */
+export
+function vhf_q(real: Input, period: number) {
+  return submit(93, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { vhf: InputMap },
+  };
+}
+
+/**
+ * Submit Variable Index Dynamic Average
+ */
+export
+function vidya_q(real: Input, options: { short_period: number, long_period: number, alpha: number }) {
+  return submit(94, [real], [options.short_period, options.long_period, options.alpha]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { vidya: InputMap },
+  };
+}
+
+/**
+ * Submit Annualized Historical Volatility
+ */
+export
+function volatility_q(real: Input, period: number) {
+  return submit(95, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { volatility: InputMap },
+  };
+}
+
+/**
+ * Submit Volume Oscillator
+ */
+export
+function vosc_q(volume: Input, options: { short_period: number, long_period: number }) {
+  return submit(96, [volume], [options.short_period, options.long_period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { volume: InputMap },
+    outputs: { vosc: InputMap },
+  };
+}
+
+/**
+ * Submit Volume Weighted Moving Average
+ */
+export
+function vwma_q(close: Input, volume: Input, period: number) {
+  return submit(97, [close, volume], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { close: InputMap, volume: InputMap },
+    outputs: { vwma: InputMap },
+  };
+}
+
+/**
+ * Submit Williams Accumulation/Distribution
+ */
+export
+function wad_q(high: Input, low: Input, close: Input) {
+  return submit(98, [high, low, close], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { wad: InputMap },
+  };
+}
+
+/**
+ * Submit Weighted Close Price
+ */
+export
+function wcprice_q(high: Input, low: Input, close: Input) {
+  return submit(99, [high, low, close], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { wcprice: InputMap },
+  };
+}
+
+/**
+ * Submit Wilders Smoothing
+ */
+export
+function wilders_q(real: Input, period: number) {
+  return submit(100, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { wilders: InputMap },
+  };
+}
+
+/**
+ * Submit Williams %R
+ */
+export
+function willr_q(high: Input, low: Input, close: Input, period: number) {
+  return submit(101, [high, low, close], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { high: InputMap, low: InputMap, close: InputMap },
+    outputs: { willr: InputMap },
+  };
+}
+
+/**
+ * Submit Weighted Moving Average
+ */
+export
+function wma_q(real: Input, period: number) {
+  return submit(102, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { wma: InputMap },
+  };
+}
+
+/**
+ * Submit Zero-Lag Exponential Moving Average
+ */
+export
+function zlema_q(real: Input, period: number) {
+  return submit(103, [real], [period]) as {
+    id: number,
+    indic_index: number,
+    inputs: { real: InputMap },
+    outputs: { zlema: InputMap },
+  };
 }
 
 /**
