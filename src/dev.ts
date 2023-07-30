@@ -1,6 +1,7 @@
 import * as t from '.';
 
 const registry = new FinalizationRegistry((value) => {
+  console.timeEnd('gc');
   console.log('垃圾回收了', value);
 });
 
@@ -12,10 +13,12 @@ function func() {
 async function dev() {
   const wasm = await t.init();
   func();
+  console.time('gc');
   let list: number[] = [];
   setInterval(() => {
-    list.push(...Array(1e4).fill(0).map(() => Math.random()));
-    console.log(list.length);
+    console.log(wasm._mm(10));
+    // list.push(...Array(1e4).fill(0).map(() => Math.random()));
+    // console.log(list.length);
   }, 100);
   return;
   const list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
