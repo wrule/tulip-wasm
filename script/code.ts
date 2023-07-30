@@ -66,7 +66,7 @@ function ${this.indic.name}(${this.argsCode}) {
   public CodeSubmit() {
     return `
 /**
- * ${this.indic.full_name}
+ * Submit ${this.indic.full_name}
  */
 export
 function ${this.indic.name}_q(${this.argsCodeSubmit}) {
