@@ -13,11 +13,12 @@ class Code {
     return this.indic.outputs > 1;
   }
 
-  private names(list: string[], type: 'number' | 'number[]' | 'Float64Array' | 'options' | 'outputs' | '' = 'number') {
+  private names(list: string[], type: 'number' | 'number[]' | 'Float64Array' | 'Input' | 'options' | 'outputs' | '' = 'number') {
     return list.map((name, index) => {
       if (type === 'number') return `${name}: number`;
       if (type === 'number[]') return `${name}: ArrayLike<number>`;
       if (type === 'Float64Array') return `${name}: Float64Array`;
+      if (type === 'Input') return `${name}: Input`;
       if (type === 'options') return `options.${name}`;
       if (type === 'outputs') return `${name}: outputs[${index}]`;
       return name;
@@ -37,7 +38,7 @@ class Code {
   }
 
   private get argsCodeSubmit() {
-    const inputs = this.names(this.indic.input_names, 'number[]');
+    const inputs = this.names(this.indic.input_names, 'Input');
     return [inputs, this.optionsCode].filter((item) => item).join(', ');
   }
 
@@ -94,7 +95,7 @@ function ${this.indic.name}_start(${this.optionsCode}) {
 
 function main() {
   const full_code = `
-import { run, start, submit } from './meta';
+import { run, start, submit, Input } from './meta';
 
 ${documents.map((ind) => new Code(ind).CodeRun()).join('\n\n')}
 
