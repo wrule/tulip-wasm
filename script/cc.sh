@@ -14,5 +14,6 @@ emcc -O3 tulipx/tulipx.c tulipx/tiamalgamation.c -o src/tulipx.js \
     "_outputs_offset",
     "_run",
     "_run_batch",
-    "_erase_batch"
+    "_erase_batch",
+    "_mm"
   ]'

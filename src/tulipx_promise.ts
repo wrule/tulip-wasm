@@ -19,6 +19,7 @@ interface TulipX {
   HEAPF64: Float64Array;
   _set_array(address: number, array: ArrayLike<number>): void;
   _get_array(address: number, size: number): Float64Array;
+  _mm(size: number): number;
 }
 
 async function tulipx_factory() {

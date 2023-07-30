@@ -145,3 +145,7 @@ void run(int task_index) {
 void run_batch(int start_index, int end_index) {
   for (int i = start_index; i <= end_index; ++i) run(i);
 }
+
+void * mm(size_t size) {
+  return malloc(sizeof(TI_REAL) * size);
+}
