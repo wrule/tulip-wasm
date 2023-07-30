@@ -73,7 +73,12 @@ function ${this.indic.name}_q(${this.argsCodeSubmit}) {
     this.names(this.indic.input_names, '')
   }], [${
     this.names(this.indic.option_names, this.options ? 'options' : '')
-  }]);
+  }]) as {
+    id: number,
+    indic_index: number,
+    inputs: InputsMap,
+    outputs: InputsMap,
+  };
 }
     `.trim();
   }
