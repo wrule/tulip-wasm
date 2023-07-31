@@ -31,7 +31,7 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
 
 class Sequence<T extends Task = Task> {
   private size!: number;
-  private tasks: Task[] = [];
+  public readonly tasks: Task[] = [];
   private readonly tulipx: TulipX = Global.tulip_wasm;
 
   private inputs_map(
