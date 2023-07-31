@@ -27,7 +27,7 @@ async function tulipx_factory() {
   tulipx._set_array = (address: number, array: ArrayLike<number>) =>
     tulipx.HEAPF64.set(array, address / bytes);
   tulipx._get_array = (address: number, size: number) =>
-    tulipx.HEAPF64.subarray(address / bytes, address / bytes + size);
+    tulipx.HEAPF64.subarray(address / bytes, address / bytes + size).slice();
   return tulipx;
 }
 
