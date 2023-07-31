@@ -29,7 +29,6 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
   { [name in keyof T]: Float64Array } :
   Float64Array;
 
-export
 class Sequence<T extends Task = Task> {
   private size!: number;
   private tasks: Task[] = [];
