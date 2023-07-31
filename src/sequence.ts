@@ -88,14 +88,6 @@ class Sequence<T extends Task = Task> {
     outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
     return RunResult(indic, outputs) as SequenceResult<T['outputs']>;
   }
-
-  public Free() {
-    if (this.tasks.length < 1) throw 'tasks is empty';
-    const first = this.tasks[0];
-    const last = this.tasks[this.tasks.length - 1];
-    this.tulipx._erase_batch(first.id, last.id, 0);
-    this.tasks = [];
-  }
 }
 
 export
