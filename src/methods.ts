@@ -833,6 +833,14 @@ function zlema(real: ArrayLike<number>, period: number, align: boolean | number 
 }
 
 /**
+ * Cross Signals ROI
+ */
+export
+function crossroi(prices: ArrayLike<number>, signals: ArrayLike<number>, fee: number, align: boolean | number = false) {
+  return run(104, [prices, signals], [fee], align) as Float64Array;
+}
+
+/**
  * Submit Vector Absolute Value
  */
 export
@@ -2185,6 +2193,19 @@ function zlema_q(real: Input, period: number) {
 }
 
 /**
+ * Submit Cross Signals ROI
+ */
+export
+function crossroi_q(prices: Input, signals: Input, fee: number) {
+  return submit(104, [prices, signals], [fee]) as {
+    id: number,
+    indic_index: number,
+    inputs: { prices: InputMap, signals: InputMap },
+    outputs: { roi: InputMap },
+  };
+}
+
+/**
  * Get Vector Absolute Value Start Index
  */
 export
@@ -3014,6 +3035,14 @@ function wma_start(period: number) {
 export
 function zlema_start(period: number) {
   return start(103, [period]);
+}
+
+/**
+ * Get Cross Signals ROI Start Index
+ */
+export
+function crossroi_start(fee: number) {
+  return start(104, [fee]);
 }
 
 export * from './meta';

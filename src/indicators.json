@@ -1882,5 +1882,24 @@
     "output_names": [
       "zlema"
     ]
+  },
+  {
+    "index": 104,
+    "name": "crossroi",
+    "full_name": "Cross Signals ROI",
+    "type": 4,
+    "inputs": 2,
+    "options": 1,
+    "outputs": 1,
+    "input_names": [
+      "prices",
+      "signals"
+    ],
+    "option_names": [
+      "fee"
+    ],
+    "output_names": [
+      "roi"
+    ]
   }
 ]
