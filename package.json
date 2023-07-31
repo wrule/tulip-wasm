@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "npm run cc && npm run json && npm run code && tsc && npm run pack",
     "pack": "script/pack.sh",
     "clean": "rm -rf dist",
     "watch": "tsc --watch",
