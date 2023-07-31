@@ -1,4 +1,4 @@
-import { TulipX, documents } from './meta';
+import { TulipX, documents, gc_registry } from './meta';
 import { Global, IsArrayLike, IsUnion, RunResult } from './utils';
 
 export
@@ -105,5 +105,6 @@ function sequence<T extends Task>(func: () => T) {
   Global.tulip_sequence = seq;
   func();
   Global.tulip_sequence = null;
+  gc_registry.register(seq, [seq.tasks[0].id, seq.tasks[seq.tasks.length - 1].id]);
   return seq;
 }
