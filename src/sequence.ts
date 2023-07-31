@@ -16,7 +16,6 @@ interface InputsMap {
 export
 type Input = ArrayLike<number> | InputMap;
 
-export
 interface Task {
   id: number;
   indic_index: number;
@@ -24,7 +23,6 @@ interface Task {
   outputs: InputsMap,
 }
 
-export
 type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
   { [name in keyof T]: Float64Array } :
   Float64Array;
