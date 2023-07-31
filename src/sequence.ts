@@ -44,7 +44,7 @@ class Sequence<T extends Task = Task> {
     }]));
   }
 
-  public Push(
+  public _push(
     indic_index: number,
     inputs: Input[],
     options: ArrayLike<number>,
@@ -96,7 +96,7 @@ function submit(
   options: ArrayLike<number>,
 ) {
   const seq: Sequence = Global.tulip_sequence;
-  return seq.Push(indic_index, inputs, options);
+  return seq._push(indic_index, inputs, options);
 }
 
 export
