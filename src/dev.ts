@@ -1,7 +1,10 @@
 import * as t from '.';
 
+let count = 0;
+
 const registry = new FinalizationRegistry((value) => {
   console.timeEnd('gc');
+  console.log('count', count);
   console.log('垃圾回收了', value);
 });
 
@@ -17,8 +20,8 @@ async function dev() {
   let list: number[] = [];
   setInterval(() => {
     // wasm._mm(1e1);
-    list.push(...Array(1).fill(0).map(() => Math.random()));
-    // console.log(list.length);
+    list.push(...Array(1e4).fill(0).map(() => Math.random()));
+    count++;
   }, 100);
   return;
   const list1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
