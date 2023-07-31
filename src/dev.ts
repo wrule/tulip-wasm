@@ -16,6 +16,9 @@ function func() {
 async function dev() {
   const wasm = await t.init();
   func();
+  // let mem: any = { name: '你好，世界' };
+  // registry.register(mem, 123);
+  // mem = null;
   console.time('gc');
   let list: number[] = [];
   setInterval(() => {
