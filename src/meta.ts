@@ -9,7 +9,7 @@ const documents: Indicator[] = indicators;
 export
 const gc_registry = new FinalizationRegistry((ids: number[]) => {
   const tulipx: TulipX = Global.tulip_wasm;
-  console.log('gc', ids);
+  console.log(Date.now(), 'gc', ids);
   tulipx._erase_batch(ids[0], ids[ids.length - 1], 0);
 });
 
