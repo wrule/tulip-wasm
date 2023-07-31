@@ -1,4 +1,4 @@
-import { documents } from './meta';
+import { documents, gc_registry } from './meta';
 import { TulipX } from './tulipx_promise';
 import { Global, RunResult } from './utils';
 
@@ -32,7 +32,9 @@ function run(
   const outputs_offset = tulipx._outputs_offset(task);
   outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
   if (align !== true) _align(outputs, align === false ? size - outputs_offset : align);
-  return RunResult(indic, outputs);
+  const result = RunResult(indic, outputs);
+  gc_registry.register(result, [task]);
+  return result;
 }
 
 export
