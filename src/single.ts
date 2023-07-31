@@ -32,6 +32,7 @@ function run(
   const outputs_offset = tulipx._outputs_offset(task);
   outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
   if (align !== true) _align(outputs, align === false ? size - outputs_offset : align);
+  tulipx._pop();
   return RunResult(indic, outputs);
 }
 
