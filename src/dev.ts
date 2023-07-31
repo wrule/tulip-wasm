@@ -19,8 +19,8 @@ async function dev() {
   console.time('gc');
   let list: number[] = [];
   setInterval(() => {
-    // wasm._mm(1e1);
-    list.push(...Array(1e4).fill(0).map(() => Math.random()));
+    wasm._mm(1e5);
+    // list.push(...Array(1e4).fill(0).map(() => Math.random()));
     count++;
   }, 100);
   return;
