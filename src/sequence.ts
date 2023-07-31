@@ -103,6 +103,7 @@ function sequence<T extends Task>(func: () => T) {
   Global.tulip_sequence = seq;
   func();
   Global.tulip_sequence = null;
+  if (seq.tasks.length < 1) throw 'tasks is empty';
   gc_registry.register(seq, [seq.tasks[0].id, seq.tasks[seq.tasks.length - 1].id]);
   return seq;
 }
