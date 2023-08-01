@@ -4374,7 +4374,7 @@ int ti_crossroi_start(TI_REAL const * options) {
   return 0;
 }
 
-int ti_crossroi(
+int ti_crossaction(
   int size,
   TI_REAL const * const * inputs,
   TI_REAL const * options,
@@ -4405,7 +4405,7 @@ int ti_crossroi(
   return TI_OKAY;
 }
 
-int ti_crossroi_start(TI_REAL const * options) {
+int ti_crossaction_start(TI_REAL const * options) {
   return 0;
 }
 
