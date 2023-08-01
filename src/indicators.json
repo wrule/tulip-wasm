@@ -1888,12 +1888,13 @@
     "name": "crossroi",
     "full_name": "Cross Signals ROI",
     "type": 4,
-    "inputs": 2,
+    "inputs": 3,
     "options": 1,
     "outputs": 1,
     "input_names": [
-      "prices",
-      "signals"
+      "fast",
+      "slow",
+      "prices"
     ],
     "option_names": [
       "fee"

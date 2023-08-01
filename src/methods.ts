@@ -836,8 +836,8 @@ function zlema(real: ArrayLike<number>, period: number, align: boolean | number 
  * Cross Signals ROI
  */
 export
-function crossroi(prices: ArrayLike<number>, signals: ArrayLike<number>, fee: number, align: boolean | number = false) {
-  return run(104, [prices, signals], [fee], align) as Float64Array;
+function crossroi(fast: ArrayLike<number>, slow: ArrayLike<number>, prices: ArrayLike<number>, fee: number, align: boolean | number = false) {
+  return run(104, [fast, slow, prices], [fee], align) as Float64Array;
 }
 
 /**
@@ -2196,11 +2196,11 @@ function zlema_q(real: Input, period: number) {
  * Submit Cross Signals ROI
  */
 export
-function crossroi_q(prices: Input, signals: Input, fee: number) {
-  return submit(104, [prices, signals], [fee]) as {
+function crossroi_q(fast: Input, slow: Input, prices: Input, fee: number) {
+  return submit(104, [fast, slow, prices], [fee]) as {
     id: number,
     indic_index: number,
-    inputs: { prices: InputMap, signals: InputMap },
+    inputs: { fast: InputMap, slow: InputMap, prices: InputMap },
     outputs: { roi: InputMap },
   };
 }
