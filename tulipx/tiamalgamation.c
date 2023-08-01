@@ -4343,26 +4343,27 @@ int ti_crossroi(
   TI_REAL const * options,
   TI_REAL * const * outputs
 ) {
-  TI_REAL fee = 1 - options[0];
+  TI_REAL const fee = 1 - options[0];
   TI_REAL funds = 1;
   TI_REAL assets = 0;
-  TI_REAL const * prices = inputs[0];
-  TI_REAL const * signals = inputs[1];
+  TI_REAL const * fast = inputs[0];
+  TI_REAL const * slow = inputs[1];
+  TI_REAL const * prices = inputs[2];
   TI_REAL * roi = outputs[0];
-  TI_REAL prev = NAN;
+  TI_REAL prev_diff = NAN;
   for (size_t i = 0; i < size; ++i) {
     TI_REAL const price = prices[i];
-    TI_REAL const signal = signals[i];
-    if (prev <= 0 && signal > 0) {
+    TI_REAL const diff = fast[i] - slow[i];
+    if (prev_diff <= 0 && diff > 0) {
       assets += (funds / price) * fee;
       funds = 0;
     }
-    if (prev >=0 && signal < 0) {
+    if (prev_diff >=0 && diff < 0) {
       funds += (assets * price) * fee;
       assets = 0;
     }
     roi[i] = funds + assets * price;
-    prev = signal;
+    prev_diff = diff;
   }
   return TI_OKAY;
 }
