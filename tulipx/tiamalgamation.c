@@ -4390,7 +4390,7 @@ int ti_crossaction(
   for (size_t i = 0; i < size; ++i) {
     TI_REAL const diff = fast[i] - slow[i];
     if (prev_diff <= 0 && diff > 0) action[i] = TI_ACTION_BUY;
-    if (prev_diff >=0 && diff < 0) action[i] = TI_ACTION_SELL;
+    else if (prev_diff >=0 && diff < 0) action[i] = TI_ACTION_SELL;
     else action[i] = TI_ACTION_NONE;
     prev_diff = diff;
   }
