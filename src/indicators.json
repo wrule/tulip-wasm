@@ -1902,5 +1902,22 @@
     "output_names": [
       "roi"
     ]
+  },
+  {
+    "index": 105,
+    "name": "crossaction",
+    "full_name": "Cross Signals Action",
+    "type": 4,
+    "inputs": 2,
+    "options": 0,
+    "outputs": 1,
+    "input_names": [
+      "fast",
+      "slow"
+    ],
+    "option_names": [],
+    "output_names": [
+      "action"
+    ]
   }
 ]

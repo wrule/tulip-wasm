@@ -841,6 +841,14 @@ function crossroi(fast: ArrayLike<number>, slow: ArrayLike<number>, prices: Arra
 }
 
 /**
+ * Cross Signals Action
+ */
+export
+function crossaction(fast: ArrayLike<number>, slow: ArrayLike<number>, align: boolean | number = false) {
+  return run(105, [fast, slow], [], align) as Float64Array;
+}
+
+/**
  * Submit Vector Absolute Value
  */
 export
@@ -2206,6 +2214,19 @@ function crossroi_q(fast: Input, slow: Input, prices: Input, fee: number) {
 }
 
 /**
+ * Submit Cross Signals Action
+ */
+export
+function crossaction_q(fast: Input, slow: Input) {
+  return submit(105, [fast, slow], []) as {
+    id: number,
+    indic_index: number,
+    inputs: { fast: InputMap, slow: InputMap },
+    outputs: { action: InputMap },
+  };
+}
+
+/**
  * Get Vector Absolute Value Start Index
  */
 export
@@ -3043,6 +3064,14 @@ function zlema_start(period: number) {
 export
 function crossroi_start(fee: number) {
   return start(104, [fee]);
+}
+
+/**
+ * Get Cross Signals Action Start Index
+ */
+export
+function crossaction_start() {
+  return start(105, []);
 }
 
 export * from './meta';
