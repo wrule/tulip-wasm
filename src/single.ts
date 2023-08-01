@@ -27,17 +27,17 @@ function run(
   tulipx._set_array(tulipx._options(task), options);
   tulipx._run(task);
   const indic = documents[indic_index];
-  const outputs = Array(indic.outputs).fill(0)
+  let outputs = Array(indic.outputs).fill(0)
     .map((_, index) => tulipx._get_array(tulipx._outputs(task, index), size));
   const outputs_offset = tulipx._outputs_offset(task);
   outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
-  if (align !== true) _align(outputs, align === false ? size - outputs_offset : align);
+  if (align !== true) outputs = _align(outputs, align === false ? size - outputs_offset : align);
   tulipx._pop();
   return RunResult(indic, outputs);
 }
 
 export
-function align(outputs: Float64Array[], length: number) {
+function _align(outputs: Float64Array[], length: number) {
   return outputs.map((output) => {
     const diff = length - output.length;
     if (diff > 0) {
