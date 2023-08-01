@@ -31,13 +31,13 @@ function run(
     .map((_, index) => tulipx._get_array(tulipx._outputs(task, index), size));
   const outputs_offset = tulipx._outputs_offset(task);
   outputs.forEach((output) => output.fill(NaN, 0, outputs_offset));
-  if (align !== true) outputs = _align(outputs, align === false ? size - outputs_offset : align);
+  if (align !== true) outputs = _copy(outputs, align === false ? size - outputs_offset : align);
   tulipx._pop();
   return RunResult(indic, outputs);
 }
 
 export
-function _align(outputs: Float64Array[], length: number) {
+function _copy(outputs: Float64Array[], length: number) {
   return outputs.map((output) => {
     const diff = length - output.length;
     if (diff > 0) {
