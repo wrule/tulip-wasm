@@ -1106,9 +1106,9 @@ int ti_zlema(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_
 int ti_crossroi_start(TI_REAL const *options);
 int ti_crossroi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs);
 
-#define TI_INDICATOR_CROSSROI_INDEX 104
-int ti_crossroi_start(TI_REAL const *options);
-int ti_crossroi(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs);
+#define TI_INDICATOR_CROSSACTION_INDEX 105
+int ti_crossaction_start(TI_REAL const *options);
+int ti_crossaction(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs);
 
 
 
