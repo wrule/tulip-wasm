@@ -1,6 +1,6 @@
 {
   "name": "tulip-wasm",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "dist/index.js",
   "scripts": {
     "build": "npm run cc && npm run json && npm run code && tsc && npm run pack",
