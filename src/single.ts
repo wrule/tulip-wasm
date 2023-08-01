@@ -37,16 +37,17 @@ function run(
 }
 
 export
-function _align(outputs: Float64Array[], length: number) {
-  outputs.forEach((output, index) => {
+function align(outputs: Float64Array[], length: number) {
+  return outputs.map((output) => {
     const diff = length - output.length;
     if (diff > 0) {
       const head = new Float64Array(Array(diff).fill(NaN));
       const array = new Float64Array(head.length + output.length);
       array.set(head, 0);
       array.set(output, head.length);
-      outputs[index] = array;
+      return array;
     }
-    if (diff < 0) outputs[index] = output.subarray(-diff, output.length);
+    if (diff < 0) return output.subarray(-diff, output.length);
+    return output;
   });
 }
