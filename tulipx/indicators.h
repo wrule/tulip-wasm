@@ -86,6 +86,9 @@ int ti_indicator_count(void);
 
 #define TI_MAXINDPARAMS 16 /* No indicator will use more than this many inputs, options, or outputs. */
 
+#define TI_ACTION_NONE  0
+#define TI_ACTION_BUY   1
+#define TI_ACTION_SELL  2
 
 typedef int (*ti_indicator_start_function)(TI_REAL const *options);
 typedef int (*ti_indicator_function)(int size, TI_REAL const *const *inputs, TI_REAL const *options, TI_REAL *const *outputs);
