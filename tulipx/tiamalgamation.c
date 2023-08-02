@@ -4367,7 +4367,7 @@ int ti_crossroi(
       funds += (assets * price) * fee;
       assets = 0;
     }
-    roi[i] = (funds + assets * price * fee) - 1;
+    roi[i] = (funds + assets * price) - 1;
     prev_diff = diff;
   }
   return TI_OKAY;
