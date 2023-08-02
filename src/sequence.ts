@@ -44,7 +44,7 @@ class Sequence<T extends Task = Task> {
     }]));
   }
 
-  private tasks_map = new Map<string | symbol, number>();
+  private tasks_map = new Map<string | symbol, Task>();
 
   public _push(
     indic_index: number,
@@ -72,7 +72,7 @@ class Sequence<T extends Task = Task> {
       outputs: this.inputs_map(documents[indic_index].output_names, id, 0),
     };
     this.tasks.push(task);
-    this.tasks_map.set(name, task.id);
+    this.tasks_map.set(name, task);
     return task;
   }
 
@@ -80,8 +80,8 @@ class Sequence<T extends Task = Task> {
     Object.entries(params_map).forEach(([name, params]) => {
       const task = this.tasks_map.get(name);
       if (task == null) throw 'task does not exist';
-      const options = documents[task].option_names.map((name) => params[name]);
-      this.tulipx._set_array(this.tulipx._options(task), options);
+      const options = documents[task.indic_index].option_names.map((name) => params[name]);
+      this.tulipx._set_array(this.tulipx._options(task.id), options);
     });
   }
 
