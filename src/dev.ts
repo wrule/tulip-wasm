@@ -14,13 +14,19 @@ async function dev() {
     return t.crossroi_q(stoch.outputs.stoch_k, stoch.outputs.stoch_d, rsi.inputs.real, 0.001);
   });
   console.time('bt');
-  seq.Update({
-    rsi: { period: 13 },
-    stoch: { k_period: 45, d_period: 45, k_slowing_period: 32 },
-  });
-  const roi = seq.Run();
+  let max = -Infinity;
+  for (let i = 0; i < 100000; ++i) {
+    seq.Update({
+      rsi: { period: Math.floor(Math.random() * 100) },
+      stoch: { k_period: Math.floor(Math.random() * 100), d_period: Math.floor(Math.random() * 100), k_slowing_period: Math.floor(Math.random() * 100) },
+    });
+    const roi = seq.Run();
+    if (roi[roi.length - 1] > max) {
+      max = roi[roi.length - 1];
+      console.log(max);
+    }
+  }
   console.timeEnd('bt');
-  console.log(roi[roi.length - 1]);
 
   // const list = Array(10000000).fill(0).map(() => Math.random() * 1000);
   // console.time('sma');
