@@ -1,19 +1,26 @@
 import * as t from '.';
+const data = require('../ETH_USDT-30m.json');
 
 async function dev() {
   await t.init();
-  const close = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  const close = data.map((item: any) => item[4]);
   const seq = t.sequence(() => {
-    const sma1 = t.sma_q(close, 0, 'sma1');
-    const sma2 = t.sma_q(sma1.inputs.real, 0, 'sma2');
-    return t.crossroi_q(sma1.outputs.sma, sma2.outputs.sma, sma1.inputs.real, 0.001);
+    const rsi = t.rsi_q(close, 0, 'rsi');
+    const stoch = t.stoch_q(rsi.outputs.rsi, rsi.outputs.rsi, rsi.outputs.rsi, {
+      k_slowing_period: 0,
+      k_period: 0,
+      d_period: 0,
+    }, 'stoch');
+    return t.crossroi_q(stoch.outputs.stoch_k, stoch.outputs.stoch_d, rsi.inputs.real, 0.001);
   });
+  console.time('bt');
   seq.Update({
-    sma1: { period: 2 },
-    sma2: { period: 4 },
+    rsi: { period: 13 },
+    stoch: { k_period: 45, d_period: 45, k_slowing_period: 32 },
   });
   const roi = seq.Run();
-  console.log(roi);
+  console.timeEnd('bt');
+  console.log(roi[roi.length - 1]);
 
   // const list = Array(10000000).fill(0).map(() => Math.random() * 1000);
   // console.time('sma');
