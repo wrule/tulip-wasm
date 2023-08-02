@@ -852,8 +852,8 @@ function crossaction(fast: ArrayLike<number>, slow: ArrayLike<number>, align: bo
  * Submit Vector Absolute Value
  */
 export
-function abs_q(real: Input) {
-  return submit(0, [real], []) as {
+function abs_q(real: Input, name?: string | symbol) {
+  return submit(0, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -865,8 +865,8 @@ function abs_q(real: Input) {
  * Submit Vector Arccosine
  */
 export
-function acos_q(real: Input) {
-  return submit(1, [real], []) as {
+function acos_q(real: Input, name?: string | symbol) {
+  return submit(1, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -878,8 +878,8 @@ function acos_q(real: Input) {
  * Submit Accumulation/Distribution Line
  */
 export
-function ad_q(high: Input, low: Input, close: Input, volume: Input) {
-  return submit(2, [high, low, close, volume], []) as {
+function ad_q(high: Input, low: Input, close: Input, volume: Input, name?: string | symbol) {
+  return submit(2, [high, low, close, volume], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
@@ -891,8 +891,8 @@ function ad_q(high: Input, low: Input, close: Input, volume: Input) {
  * Submit Vector Addition
  */
 export
-function add_q(real1: Input, real2: Input) {
-  return submit(3, [real1, real2], []) as {
+function add_q(real1: Input, real2: Input, name?: string | symbol) {
+  return submit(3, [real1, real2], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real1: InputMap, real2: InputMap },
@@ -904,8 +904,8 @@ function add_q(real1: Input, real2: Input) {
  * Submit Accumulation/Distribution Oscillator
  */
 export
-function adosc_q(high: Input, low: Input, close: Input, volume: Input, options: { short_period: number, long_period: number }) {
-  return submit(4, [high, low, close, volume], [options.short_period, options.long_period]) as {
+function adosc_q(high: Input, low: Input, close: Input, volume: Input, options: { short_period: number, long_period: number }, name?: string | symbol) {
+  return submit(4, [high, low, close, volume], [options.short_period, options.long_period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
@@ -917,8 +917,8 @@ function adosc_q(high: Input, low: Input, close: Input, volume: Input, options: 
  * Submit Average Directional Movement Index
  */
 export
-function adx_q(high: Input, low: Input, period: number) {
-  return submit(5, [high, low], [period]) as {
+function adx_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(5, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -930,8 +930,8 @@ function adx_q(high: Input, low: Input, period: number) {
  * Submit Average Directional Movement Rating
  */
 export
-function adxr_q(high: Input, low: Input, period: number) {
-  return submit(6, [high, low], [period]) as {
+function adxr_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(6, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -943,8 +943,8 @@ function adxr_q(high: Input, low: Input, period: number) {
  * Submit Awesome Oscillator
  */
 export
-function ao_q(high: Input, low: Input) {
-  return submit(7, [high, low], []) as {
+function ao_q(high: Input, low: Input, name?: string | symbol) {
+  return submit(7, [high, low], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -956,8 +956,8 @@ function ao_q(high: Input, low: Input) {
  * Submit Absolute Price Oscillator
  */
 export
-function apo_q(real: Input, options: { short_period: number, long_period: number }) {
-  return submit(8, [real], [options.short_period, options.long_period]) as {
+function apo_q(real: Input, options: { short_period: number, long_period: number }, name?: string | symbol) {
+  return submit(8, [real], [options.short_period, options.long_period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -969,8 +969,8 @@ function apo_q(real: Input, options: { short_period: number, long_period: number
  * Submit Aroon
  */
 export
-function aroon_q(high: Input, low: Input, period: number) {
-  return submit(9, [high, low], [period]) as {
+function aroon_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(9, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -982,8 +982,8 @@ function aroon_q(high: Input, low: Input, period: number) {
  * Submit Aroon Oscillator
  */
 export
-function aroonosc_q(high: Input, low: Input, period: number) {
-  return submit(10, [high, low], [period]) as {
+function aroonosc_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(10, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -995,8 +995,8 @@ function aroonosc_q(high: Input, low: Input, period: number) {
  * Submit Vector Arcsine
  */
 export
-function asin_q(real: Input) {
-  return submit(11, [real], []) as {
+function asin_q(real: Input, name?: string | symbol) {
+  return submit(11, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1008,8 +1008,8 @@ function asin_q(real: Input) {
  * Submit Vector Arctangent
  */
 export
-function atan_q(real: Input) {
-  return submit(12, [real], []) as {
+function atan_q(real: Input, name?: string | symbol) {
+  return submit(12, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1021,8 +1021,8 @@ function atan_q(real: Input) {
  * Submit Average True Range
  */
 export
-function atr_q(high: Input, low: Input, close: Input, period: number) {
-  return submit(13, [high, low, close], [period]) as {
+function atr_q(high: Input, low: Input, close: Input, period: number, name?: string | symbol) {
+  return submit(13, [high, low, close], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -1034,8 +1034,8 @@ function atr_q(high: Input, low: Input, close: Input, period: number) {
  * Submit Average Price
  */
 export
-function avgprice_q(open: Input, high: Input, low: Input, close: Input) {
-  return submit(14, [open, high, low, close], []) as {
+function avgprice_q(open: Input, high: Input, low: Input, close: Input, name?: string | symbol) {
+  return submit(14, [open, high, low, close], [], name) as {
     id: number,
     indic_index: number,
     inputs: { open: InputMap, high: InputMap, low: InputMap, close: InputMap },
@@ -1047,8 +1047,8 @@ function avgprice_q(open: Input, high: Input, low: Input, close: Input) {
  * Submit Bollinger Bands
  */
 export
-function bbands_q(real: Input, options: { period: number, stddev: number }) {
-  return submit(15, [real], [options.period, options.stddev]) as {
+function bbands_q(real: Input, options: { period: number, stddev: number }, name?: string | symbol) {
+  return submit(15, [real], [options.period, options.stddev], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1060,8 +1060,8 @@ function bbands_q(real: Input, options: { period: number, stddev: number }) {
  * Submit Balance of Power
  */
 export
-function bop_q(open: Input, high: Input, low: Input, close: Input) {
-  return submit(16, [open, high, low, close], []) as {
+function bop_q(open: Input, high: Input, low: Input, close: Input, name?: string | symbol) {
+  return submit(16, [open, high, low, close], [], name) as {
     id: number,
     indic_index: number,
     inputs: { open: InputMap, high: InputMap, low: InputMap, close: InputMap },
@@ -1073,8 +1073,8 @@ function bop_q(open: Input, high: Input, low: Input, close: Input) {
  * Submit Commodity Channel Index
  */
 export
-function cci_q(high: Input, low: Input, close: Input, period: number) {
-  return submit(17, [high, low, close], [period]) as {
+function cci_q(high: Input, low: Input, close: Input, period: number, name?: string | symbol) {
+  return submit(17, [high, low, close], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -1086,8 +1086,8 @@ function cci_q(high: Input, low: Input, close: Input, period: number) {
  * Submit Vector Ceiling
  */
 export
-function ceil_q(real: Input) {
-  return submit(18, [real], []) as {
+function ceil_q(real: Input, name?: string | symbol) {
+  return submit(18, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1099,8 +1099,8 @@ function ceil_q(real: Input) {
  * Submit Chande Momentum Oscillator
  */
 export
-function cmo_q(real: Input, period: number) {
-  return submit(19, [real], [period]) as {
+function cmo_q(real: Input, period: number, name?: string | symbol) {
+  return submit(19, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1112,8 +1112,8 @@ function cmo_q(real: Input, period: number) {
  * Submit Vector Cosine
  */
 export
-function cos_q(real: Input) {
-  return submit(20, [real], []) as {
+function cos_q(real: Input, name?: string | symbol) {
+  return submit(20, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1125,8 +1125,8 @@ function cos_q(real: Input) {
  * Submit Vector Hyperbolic Cosine
  */
 export
-function cosh_q(real: Input) {
-  return submit(21, [real], []) as {
+function cosh_q(real: Input, name?: string | symbol) {
+  return submit(21, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1138,8 +1138,8 @@ function cosh_q(real: Input) {
  * Submit Crossany
  */
 export
-function crossany_q(real1: Input, real2: Input) {
-  return submit(22, [real1, real2], []) as {
+function crossany_q(real1: Input, real2: Input, name?: string | symbol) {
+  return submit(22, [real1, real2], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real1: InputMap, real2: InputMap },
@@ -1151,8 +1151,8 @@ function crossany_q(real1: Input, real2: Input) {
  * Submit Crossover
  */
 export
-function crossover_q(real1: Input, real2: Input) {
-  return submit(23, [real1, real2], []) as {
+function crossover_q(real1: Input, real2: Input, name?: string | symbol) {
+  return submit(23, [real1, real2], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real1: InputMap, real2: InputMap },
@@ -1164,8 +1164,8 @@ function crossover_q(real1: Input, real2: Input) {
  * Submit Chaikins Volatility
  */
 export
-function cvi_q(high: Input, low: Input, period: number) {
-  return submit(24, [high, low], [period]) as {
+function cvi_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(24, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -1177,8 +1177,8 @@ function cvi_q(high: Input, low: Input, period: number) {
  * Submit Linear Decay
  */
 export
-function decay_q(real: Input, period: number) {
-  return submit(25, [real], [period]) as {
+function decay_q(real: Input, period: number, name?: string | symbol) {
+  return submit(25, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1190,8 +1190,8 @@ function decay_q(real: Input, period: number) {
  * Submit Double Exponential Moving Average
  */
 export
-function dema_q(real: Input, period: number) {
-  return submit(26, [real], [period]) as {
+function dema_q(real: Input, period: number, name?: string | symbol) {
+  return submit(26, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1203,8 +1203,8 @@ function dema_q(real: Input, period: number) {
  * Submit Directional Indicator
  */
 export
-function di_q(high: Input, low: Input, close: Input, period: number) {
-  return submit(27, [high, low, close], [period]) as {
+function di_q(high: Input, low: Input, close: Input, period: number, name?: string | symbol) {
+  return submit(27, [high, low, close], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -1216,8 +1216,8 @@ function di_q(high: Input, low: Input, close: Input, period: number) {
  * Submit Vector Division
  */
 export
-function div_q(real1: Input, real2: Input) {
-  return submit(28, [real1, real2], []) as {
+function div_q(real1: Input, real2: Input, name?: string | symbol) {
+  return submit(28, [real1, real2], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real1: InputMap, real2: InputMap },
@@ -1229,8 +1229,8 @@ function div_q(real1: Input, real2: Input) {
  * Submit Directional Movement
  */
 export
-function dm_q(high: Input, low: Input, period: number) {
-  return submit(29, [high, low], [period]) as {
+function dm_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(29, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -1242,8 +1242,8 @@ function dm_q(high: Input, low: Input, period: number) {
  * Submit Detrended Price Oscillator
  */
 export
-function dpo_q(real: Input, period: number) {
-  return submit(30, [real], [period]) as {
+function dpo_q(real: Input, period: number, name?: string | symbol) {
+  return submit(30, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1255,8 +1255,8 @@ function dpo_q(real: Input, period: number) {
  * Submit Directional Movement Index
  */
 export
-function dx_q(high: Input, low: Input, period: number) {
-  return submit(31, [high, low], [period]) as {
+function dx_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(31, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -1268,8 +1268,8 @@ function dx_q(high: Input, low: Input, period: number) {
  * Submit Exponential Decay
  */
 export
-function edecay_q(real: Input, period: number) {
-  return submit(32, [real], [period]) as {
+function edecay_q(real: Input, period: number, name?: string | symbol) {
+  return submit(32, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1281,8 +1281,8 @@ function edecay_q(real: Input, period: number) {
  * Submit Exponential Moving Average
  */
 export
-function ema_q(real: Input, period: number) {
-  return submit(33, [real], [period]) as {
+function ema_q(real: Input, period: number, name?: string | symbol) {
+  return submit(33, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1294,8 +1294,8 @@ function ema_q(real: Input, period: number) {
  * Submit Ease of Movement
  */
 export
-function emv_q(high: Input, low: Input, volume: Input) {
-  return submit(34, [high, low, volume], []) as {
+function emv_q(high: Input, low: Input, volume: Input, name?: string | symbol) {
+  return submit(34, [high, low, volume], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, volume: InputMap },
@@ -1307,8 +1307,8 @@ function emv_q(high: Input, low: Input, volume: Input) {
  * Submit Vector Exponential
  */
 export
-function exp_q(real: Input) {
-  return submit(35, [real], []) as {
+function exp_q(real: Input, name?: string | symbol) {
+  return submit(35, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1320,8 +1320,8 @@ function exp_q(real: Input) {
  * Submit Fisher Transform
  */
 export
-function fisher_q(high: Input, low: Input, period: number) {
-  return submit(36, [high, low], [period]) as {
+function fisher_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(36, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -1333,8 +1333,8 @@ function fisher_q(high: Input, low: Input, period: number) {
  * Submit Vector Floor
  */
 export
-function floor_q(real: Input) {
-  return submit(37, [real], []) as {
+function floor_q(real: Input, name?: string | symbol) {
+  return submit(37, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1346,8 +1346,8 @@ function floor_q(real: Input) {
  * Submit Forecast Oscillator
  */
 export
-function fosc_q(real: Input, period: number) {
-  return submit(38, [real], [period]) as {
+function fosc_q(real: Input, period: number, name?: string | symbol) {
+  return submit(38, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1359,8 +1359,8 @@ function fosc_q(real: Input, period: number) {
  * Submit Hull Moving Average
  */
 export
-function hma_q(real: Input, period: number) {
-  return submit(39, [real], [period]) as {
+function hma_q(real: Input, period: number, name?: string | symbol) {
+  return submit(39, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1372,8 +1372,8 @@ function hma_q(real: Input, period: number) {
  * Submit Kaufman Adaptive Moving Average
  */
 export
-function kama_q(real: Input, period: number) {
-  return submit(40, [real], [period]) as {
+function kama_q(real: Input, period: number, name?: string | symbol) {
+  return submit(40, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1385,8 +1385,8 @@ function kama_q(real: Input, period: number) {
  * Submit Klinger Volume Oscillator
  */
 export
-function kvo_q(high: Input, low: Input, close: Input, volume: Input, options: { short_period: number, long_period: number }) {
-  return submit(41, [high, low, close, volume], [options.short_period, options.long_period]) as {
+function kvo_q(high: Input, low: Input, close: Input, volume: Input, options: { short_period: number, long_period: number }, name?: string | symbol) {
+  return submit(41, [high, low, close, volume], [options.short_period, options.long_period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
@@ -1398,8 +1398,8 @@ function kvo_q(high: Input, low: Input, close: Input, volume: Input, options: { 
  * Submit Lag
  */
 export
-function lag_q(real: Input, period: number) {
-  return submit(42, [real], [period]) as {
+function lag_q(real: Input, period: number, name?: string | symbol) {
+  return submit(42, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1411,8 +1411,8 @@ function lag_q(real: Input, period: number) {
  * Submit Linear Regression
  */
 export
-function linreg_q(real: Input, period: number) {
-  return submit(43, [real], [period]) as {
+function linreg_q(real: Input, period: number, name?: string | symbol) {
+  return submit(43, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1424,8 +1424,8 @@ function linreg_q(real: Input, period: number) {
  * Submit Linear Regression Intercept
  */
 export
-function linregintercept_q(real: Input, period: number) {
-  return submit(44, [real], [period]) as {
+function linregintercept_q(real: Input, period: number, name?: string | symbol) {
+  return submit(44, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1437,8 +1437,8 @@ function linregintercept_q(real: Input, period: number) {
  * Submit Linear Regression Slope
  */
 export
-function linregslope_q(real: Input, period: number) {
-  return submit(45, [real], [period]) as {
+function linregslope_q(real: Input, period: number, name?: string | symbol) {
+  return submit(45, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1450,8 +1450,8 @@ function linregslope_q(real: Input, period: number) {
  * Submit Vector Natural Log
  */
 export
-function ln_q(real: Input) {
-  return submit(46, [real], []) as {
+function ln_q(real: Input, name?: string | symbol) {
+  return submit(46, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1463,8 +1463,8 @@ function ln_q(real: Input) {
  * Submit Vector Base-10 Log
  */
 export
-function log10_q(real: Input) {
-  return submit(47, [real], []) as {
+function log10_q(real: Input, name?: string | symbol) {
+  return submit(47, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1476,8 +1476,8 @@ function log10_q(real: Input) {
  * Submit Moving Average Convergence/Divergence
  */
 export
-function macd_q(real: Input, options: { short_period: number, long_period: number, signal_period: number }) {
-  return submit(48, [real], [options.short_period, options.long_period, options.signal_period]) as {
+function macd_q(real: Input, options: { short_period: number, long_period: number, signal_period: number }, name?: string | symbol) {
+  return submit(48, [real], [options.short_period, options.long_period, options.signal_period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1489,8 +1489,8 @@ function macd_q(real: Input, options: { short_period: number, long_period: numbe
  * Submit Market Facilitation Index
  */
 export
-function marketfi_q(high: Input, low: Input, volume: Input) {
-  return submit(49, [high, low, volume], []) as {
+function marketfi_q(high: Input, low: Input, volume: Input, name?: string | symbol) {
+  return submit(49, [high, low, volume], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, volume: InputMap },
@@ -1502,8 +1502,8 @@ function marketfi_q(high: Input, low: Input, volume: Input) {
  * Submit Mass Index
  */
 export
-function mass_q(high: Input, low: Input, period: number) {
-  return submit(50, [high, low], [period]) as {
+function mass_q(high: Input, low: Input, period: number, name?: string | symbol) {
+  return submit(50, [high, low], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -1515,8 +1515,8 @@ function mass_q(high: Input, low: Input, period: number) {
  * Submit Maximum In Period
  */
 export
-function max_q(real: Input, period: number) {
-  return submit(51, [real], [period]) as {
+function max_q(real: Input, period: number, name?: string | symbol) {
+  return submit(51, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1528,8 +1528,8 @@ function max_q(real: Input, period: number) {
  * Submit Mean Deviation Over Period
  */
 export
-function md_q(real: Input, period: number) {
-  return submit(52, [real], [period]) as {
+function md_q(real: Input, period: number, name?: string | symbol) {
+  return submit(52, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1541,8 +1541,8 @@ function md_q(real: Input, period: number) {
  * Submit Median Price
  */
 export
-function medprice_q(high: Input, low: Input) {
-  return submit(53, [high, low], []) as {
+function medprice_q(high: Input, low: Input, name?: string | symbol) {
+  return submit(53, [high, low], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -1554,8 +1554,8 @@ function medprice_q(high: Input, low: Input) {
  * Submit Money Flow Index
  */
 export
-function mfi_q(high: Input, low: Input, close: Input, volume: Input, period: number) {
-  return submit(54, [high, low, close, volume], [period]) as {
+function mfi_q(high: Input, low: Input, close: Input, volume: Input, period: number, name?: string | symbol) {
+  return submit(54, [high, low, close, volume], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap, volume: InputMap },
@@ -1567,8 +1567,8 @@ function mfi_q(high: Input, low: Input, close: Input, volume: Input, period: num
  * Submit Minimum In Period
  */
 export
-function min_q(real: Input, period: number) {
-  return submit(55, [real], [period]) as {
+function min_q(real: Input, period: number, name?: string | symbol) {
+  return submit(55, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1580,8 +1580,8 @@ function min_q(real: Input, period: number) {
  * Submit Momentum
  */
 export
-function mom_q(real: Input, period: number) {
-  return submit(56, [real], [period]) as {
+function mom_q(real: Input, period: number, name?: string | symbol) {
+  return submit(56, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1593,8 +1593,8 @@ function mom_q(real: Input, period: number) {
  * Submit Mesa Sine Wave
  */
 export
-function msw_q(real: Input, period: number) {
-  return submit(57, [real], [period]) as {
+function msw_q(real: Input, period: number, name?: string | symbol) {
+  return submit(57, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1606,8 +1606,8 @@ function msw_q(real: Input, period: number) {
  * Submit Vector Multiplication
  */
 export
-function mul_q(real1: Input, real2: Input) {
-  return submit(58, [real1, real2], []) as {
+function mul_q(real1: Input, real2: Input, name?: string | symbol) {
+  return submit(58, [real1, real2], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real1: InputMap, real2: InputMap },
@@ -1619,8 +1619,8 @@ function mul_q(real1: Input, real2: Input) {
  * Submit Normalized Average True Range
  */
 export
-function natr_q(high: Input, low: Input, close: Input, period: number) {
-  return submit(59, [high, low, close], [period]) as {
+function natr_q(high: Input, low: Input, close: Input, period: number, name?: string | symbol) {
+  return submit(59, [high, low, close], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -1632,8 +1632,8 @@ function natr_q(high: Input, low: Input, close: Input, period: number) {
  * Submit Negative Volume Index
  */
 export
-function nvi_q(close: Input, volume: Input) {
-  return submit(60, [close, volume], []) as {
+function nvi_q(close: Input, volume: Input, name?: string | symbol) {
+  return submit(60, [close, volume], [], name) as {
     id: number,
     indic_index: number,
     inputs: { close: InputMap, volume: InputMap },
@@ -1645,8 +1645,8 @@ function nvi_q(close: Input, volume: Input) {
  * Submit On Balance Volume
  */
 export
-function obv_q(close: Input, volume: Input) {
-  return submit(61, [close, volume], []) as {
+function obv_q(close: Input, volume: Input, name?: string | symbol) {
+  return submit(61, [close, volume], [], name) as {
     id: number,
     indic_index: number,
     inputs: { close: InputMap, volume: InputMap },
@@ -1658,8 +1658,8 @@ function obv_q(close: Input, volume: Input) {
  * Submit Percentage Price Oscillator
  */
 export
-function ppo_q(real: Input, options: { short_period: number, long_period: number }) {
-  return submit(62, [real], [options.short_period, options.long_period]) as {
+function ppo_q(real: Input, options: { short_period: number, long_period: number }, name?: string | symbol) {
+  return submit(62, [real], [options.short_period, options.long_period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1671,8 +1671,8 @@ function ppo_q(real: Input, options: { short_period: number, long_period: number
  * Submit Parabolic SAR
  */
 export
-function psar_q(high: Input, low: Input, options: { acceleration_factor_step: number, acceleration_factor_maximum: number }) {
-  return submit(63, [high, low], [options.acceleration_factor_step, options.acceleration_factor_maximum]) as {
+function psar_q(high: Input, low: Input, options: { acceleration_factor_step: number, acceleration_factor_maximum: number }, name?: string | symbol) {
+  return submit(63, [high, low], [options.acceleration_factor_step, options.acceleration_factor_maximum], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap },
@@ -1684,8 +1684,8 @@ function psar_q(high: Input, low: Input, options: { acceleration_factor_step: nu
  * Submit Positive Volume Index
  */
 export
-function pvi_q(close: Input, volume: Input) {
-  return submit(64, [close, volume], []) as {
+function pvi_q(close: Input, volume: Input, name?: string | symbol) {
+  return submit(64, [close, volume], [], name) as {
     id: number,
     indic_index: number,
     inputs: { close: InputMap, volume: InputMap },
@@ -1697,8 +1697,8 @@ function pvi_q(close: Input, volume: Input) {
  * Submit Qstick
  */
 export
-function qstick_q(open: Input, close: Input, period: number) {
-  return submit(65, [open, close], [period]) as {
+function qstick_q(open: Input, close: Input, period: number, name?: string | symbol) {
+  return submit(65, [open, close], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { open: InputMap, close: InputMap },
@@ -1710,8 +1710,8 @@ function qstick_q(open: Input, close: Input, period: number) {
  * Submit Rate of Change
  */
 export
-function roc_q(real: Input, period: number) {
-  return submit(66, [real], [period]) as {
+function roc_q(real: Input, period: number, name?: string | symbol) {
+  return submit(66, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1723,8 +1723,8 @@ function roc_q(real: Input, period: number) {
  * Submit Rate of Change Ratio
  */
 export
-function rocr_q(real: Input, period: number) {
-  return submit(67, [real], [period]) as {
+function rocr_q(real: Input, period: number, name?: string | symbol) {
+  return submit(67, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1736,8 +1736,8 @@ function rocr_q(real: Input, period: number) {
  * Submit Vector Round
  */
 export
-function round_q(real: Input) {
-  return submit(68, [real], []) as {
+function round_q(real: Input, name?: string | symbol) {
+  return submit(68, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1749,8 +1749,8 @@ function round_q(real: Input) {
  * Submit Relative Strength Index
  */
 export
-function rsi_q(real: Input, period: number) {
-  return submit(69, [real], [period]) as {
+function rsi_q(real: Input, period: number, name?: string | symbol) {
+  return submit(69, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1762,8 +1762,8 @@ function rsi_q(real: Input, period: number) {
  * Submit Vector Sine
  */
 export
-function sin_q(real: Input) {
-  return submit(70, [real], []) as {
+function sin_q(real: Input, name?: string | symbol) {
+  return submit(70, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1775,8 +1775,8 @@ function sin_q(real: Input) {
  * Submit Vector Hyperbolic Sine
  */
 export
-function sinh_q(real: Input) {
-  return submit(71, [real], []) as {
+function sinh_q(real: Input, name?: string | symbol) {
+  return submit(71, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1788,8 +1788,8 @@ function sinh_q(real: Input) {
  * Submit Simple Moving Average
  */
 export
-function sma_q(real: Input, period: number) {
-  return submit(72, [real], [period]) as {
+function sma_q(real: Input, period: number, name?: string | symbol) {
+  return submit(72, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1801,8 +1801,8 @@ function sma_q(real: Input, period: number) {
  * Submit Vector Square Root
  */
 export
-function sqrt_q(real: Input) {
-  return submit(73, [real], []) as {
+function sqrt_q(real: Input, name?: string | symbol) {
+  return submit(73, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1814,8 +1814,8 @@ function sqrt_q(real: Input) {
  * Submit Standard Deviation Over Period
  */
 export
-function stddev_q(real: Input, period: number) {
-  return submit(74, [real], [period]) as {
+function stddev_q(real: Input, period: number, name?: string | symbol) {
+  return submit(74, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1827,8 +1827,8 @@ function stddev_q(real: Input, period: number) {
  * Submit Standard Error Over Period
  */
 export
-function stderr_q(real: Input, period: number) {
-  return submit(75, [real], [period]) as {
+function stderr_q(real: Input, period: number, name?: string | symbol) {
+  return submit(75, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1840,8 +1840,8 @@ function stderr_q(real: Input, period: number) {
  * Submit Stochastic Oscillator
  */
 export
-function stoch_q(high: Input, low: Input, close: Input, options: { k_period: number, k_slowing_period: number, d_period: number }) {
-  return submit(76, [high, low, close], [options.k_period, options.k_slowing_period, options.d_period]) as {
+function stoch_q(high: Input, low: Input, close: Input, options: { k_period: number, k_slowing_period: number, d_period: number }, name?: string | symbol) {
+  return submit(76, [high, low, close], [options.k_period, options.k_slowing_period, options.d_period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -1853,8 +1853,8 @@ function stoch_q(high: Input, low: Input, close: Input, options: { k_period: num
  * Submit Stochastic RSI
  */
 export
-function stochrsi_q(real: Input, period: number) {
-  return submit(77, [real], [period]) as {
+function stochrsi_q(real: Input, period: number, name?: string | symbol) {
+  return submit(77, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1866,8 +1866,8 @@ function stochrsi_q(real: Input, period: number) {
  * Submit Vector Subtraction
  */
 export
-function sub_q(real1: Input, real2: Input) {
-  return submit(78, [real1, real2], []) as {
+function sub_q(real1: Input, real2: Input, name?: string | symbol) {
+  return submit(78, [real1, real2], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real1: InputMap, real2: InputMap },
@@ -1879,8 +1879,8 @@ function sub_q(real1: Input, real2: Input) {
  * Submit Sum Over Period
  */
 export
-function sum_q(real: Input, period: number) {
-  return submit(79, [real], [period]) as {
+function sum_q(real: Input, period: number, name?: string | symbol) {
+  return submit(79, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1892,8 +1892,8 @@ function sum_q(real: Input, period: number) {
  * Submit Vector Tangent
  */
 export
-function tan_q(real: Input) {
-  return submit(80, [real], []) as {
+function tan_q(real: Input, name?: string | symbol) {
+  return submit(80, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1905,8 +1905,8 @@ function tan_q(real: Input) {
  * Submit Vector Hyperbolic Tangent
  */
 export
-function tanh_q(real: Input) {
-  return submit(81, [real], []) as {
+function tanh_q(real: Input, name?: string | symbol) {
+  return submit(81, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1918,8 +1918,8 @@ function tanh_q(real: Input) {
  * Submit Triple Exponential Moving Average
  */
 export
-function tema_q(real: Input, period: number) {
-  return submit(82, [real], [period]) as {
+function tema_q(real: Input, period: number, name?: string | symbol) {
+  return submit(82, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1931,8 +1931,8 @@ function tema_q(real: Input, period: number) {
  * Submit Vector Degree Conversion
  */
 export
-function todeg_q(real: Input) {
-  return submit(83, [real], []) as {
+function todeg_q(real: Input, name?: string | symbol) {
+  return submit(83, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1944,8 +1944,8 @@ function todeg_q(real: Input) {
  * Submit Vector Radian Conversion
  */
 export
-function torad_q(real: Input) {
-  return submit(84, [real], []) as {
+function torad_q(real: Input, name?: string | symbol) {
+  return submit(84, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1957,8 +1957,8 @@ function torad_q(real: Input) {
  * Submit True Range
  */
 export
-function tr_q(high: Input, low: Input, close: Input) {
-  return submit(85, [high, low, close], []) as {
+function tr_q(high: Input, low: Input, close: Input, name?: string | symbol) {
+  return submit(85, [high, low, close], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -1970,8 +1970,8 @@ function tr_q(high: Input, low: Input, close: Input) {
  * Submit Triangular Moving Average
  */
 export
-function trima_q(real: Input, period: number) {
-  return submit(86, [real], [period]) as {
+function trima_q(real: Input, period: number, name?: string | symbol) {
+  return submit(86, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1983,8 +1983,8 @@ function trima_q(real: Input, period: number) {
  * Submit Trix
  */
 export
-function trix_q(real: Input, period: number) {
-  return submit(87, [real], [period]) as {
+function trix_q(real: Input, period: number, name?: string | symbol) {
+  return submit(87, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -1996,8 +1996,8 @@ function trix_q(real: Input, period: number) {
  * Submit Vector Truncate
  */
 export
-function trunc_q(real: Input) {
-  return submit(88, [real], []) as {
+function trunc_q(real: Input, name?: string | symbol) {
+  return submit(88, [real], [], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2009,8 +2009,8 @@ function trunc_q(real: Input) {
  * Submit Time Series Forecast
  */
 export
-function tsf_q(real: Input, period: number) {
-  return submit(89, [real], [period]) as {
+function tsf_q(real: Input, period: number, name?: string | symbol) {
+  return submit(89, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2022,8 +2022,8 @@ function tsf_q(real: Input, period: number) {
  * Submit Typical Price
  */
 export
-function typprice_q(high: Input, low: Input, close: Input) {
-  return submit(90, [high, low, close], []) as {
+function typprice_q(high: Input, low: Input, close: Input, name?: string | symbol) {
+  return submit(90, [high, low, close], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -2035,8 +2035,8 @@ function typprice_q(high: Input, low: Input, close: Input) {
  * Submit Ultimate Oscillator
  */
 export
-function ultosc_q(high: Input, low: Input, close: Input, options: { short_period: number, medium_period: number, long_period: number }) {
-  return submit(91, [high, low, close], [options.short_period, options.medium_period, options.long_period]) as {
+function ultosc_q(high: Input, low: Input, close: Input, options: { short_period: number, medium_period: number, long_period: number }, name?: string | symbol) {
+  return submit(91, [high, low, close], [options.short_period, options.medium_period, options.long_period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -2048,8 +2048,8 @@ function ultosc_q(high: Input, low: Input, close: Input, options: { short_period
  * Submit Variance Over Period
  */
 export
-function _var_q(real: Input, period: number) {
-  return submit(92, [real], [period]) as {
+function _var_q(real: Input, period: number, name?: string | symbol) {
+  return submit(92, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2061,8 +2061,8 @@ function _var_q(real: Input, period: number) {
  * Submit Vertical Horizontal Filter
  */
 export
-function vhf_q(real: Input, period: number) {
-  return submit(93, [real], [period]) as {
+function vhf_q(real: Input, period: number, name?: string | symbol) {
+  return submit(93, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2074,8 +2074,8 @@ function vhf_q(real: Input, period: number) {
  * Submit Variable Index Dynamic Average
  */
 export
-function vidya_q(real: Input, options: { short_period: number, long_period: number, alpha: number }) {
-  return submit(94, [real], [options.short_period, options.long_period, options.alpha]) as {
+function vidya_q(real: Input, options: { short_period: number, long_period: number, alpha: number }, name?: string | symbol) {
+  return submit(94, [real], [options.short_period, options.long_period, options.alpha], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2087,8 +2087,8 @@ function vidya_q(real: Input, options: { short_period: number, long_period: numb
  * Submit Annualized Historical Volatility
  */
 export
-function volatility_q(real: Input, period: number) {
-  return submit(95, [real], [period]) as {
+function volatility_q(real: Input, period: number, name?: string | symbol) {
+  return submit(95, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2100,8 +2100,8 @@ function volatility_q(real: Input, period: number) {
  * Submit Volume Oscillator
  */
 export
-function vosc_q(volume: Input, options: { short_period: number, long_period: number }) {
-  return submit(96, [volume], [options.short_period, options.long_period]) as {
+function vosc_q(volume: Input, options: { short_period: number, long_period: number }, name?: string | symbol) {
+  return submit(96, [volume], [options.short_period, options.long_period], name) as {
     id: number,
     indic_index: number,
     inputs: { volume: InputMap },
@@ -2113,8 +2113,8 @@ function vosc_q(volume: Input, options: { short_period: number, long_period: num
  * Submit Volume Weighted Moving Average
  */
 export
-function vwma_q(close: Input, volume: Input, period: number) {
-  return submit(97, [close, volume], [period]) as {
+function vwma_q(close: Input, volume: Input, period: number, name?: string | symbol) {
+  return submit(97, [close, volume], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { close: InputMap, volume: InputMap },
@@ -2126,8 +2126,8 @@ function vwma_q(close: Input, volume: Input, period: number) {
  * Submit Williams Accumulation/Distribution
  */
 export
-function wad_q(high: Input, low: Input, close: Input) {
-  return submit(98, [high, low, close], []) as {
+function wad_q(high: Input, low: Input, close: Input, name?: string | symbol) {
+  return submit(98, [high, low, close], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -2139,8 +2139,8 @@ function wad_q(high: Input, low: Input, close: Input) {
  * Submit Weighted Close Price
  */
 export
-function wcprice_q(high: Input, low: Input, close: Input) {
-  return submit(99, [high, low, close], []) as {
+function wcprice_q(high: Input, low: Input, close: Input, name?: string | symbol) {
+  return submit(99, [high, low, close], [], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -2152,8 +2152,8 @@ function wcprice_q(high: Input, low: Input, close: Input) {
  * Submit Wilders Smoothing
  */
 export
-function wilders_q(real: Input, period: number) {
-  return submit(100, [real], [period]) as {
+function wilders_q(real: Input, period: number, name?: string | symbol) {
+  return submit(100, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2165,8 +2165,8 @@ function wilders_q(real: Input, period: number) {
  * Submit Williams %R
  */
 export
-function willr_q(high: Input, low: Input, close: Input, period: number) {
-  return submit(101, [high, low, close], [period]) as {
+function willr_q(high: Input, low: Input, close: Input, period: number, name?: string | symbol) {
+  return submit(101, [high, low, close], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { high: InputMap, low: InputMap, close: InputMap },
@@ -2178,8 +2178,8 @@ function willr_q(high: Input, low: Input, close: Input, period: number) {
  * Submit Weighted Moving Average
  */
 export
-function wma_q(real: Input, period: number) {
-  return submit(102, [real], [period]) as {
+function wma_q(real: Input, period: number, name?: string | symbol) {
+  return submit(102, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2191,8 +2191,8 @@ function wma_q(real: Input, period: number) {
  * Submit Zero-Lag Exponential Moving Average
  */
 export
-function zlema_q(real: Input, period: number) {
-  return submit(103, [real], [period]) as {
+function zlema_q(real: Input, period: number, name?: string | symbol) {
+  return submit(103, [real], [period], name) as {
     id: number,
     indic_index: number,
     inputs: { real: InputMap },
@@ -2204,8 +2204,8 @@ function zlema_q(real: Input, period: number) {
  * Submit Cross Signals ROI
  */
 export
-function crossroi_q(fast: Input, slow: Input, prices: Input, fee: number) {
-  return submit(104, [fast, slow, prices], [fee]) as {
+function crossroi_q(fast: Input, slow: Input, prices: Input, fee: number, name?: string | symbol) {
+  return submit(104, [fast, slow, prices], [fee], name) as {
     id: number,
     indic_index: number,
     inputs: { fast: InputMap, slow: InputMap, prices: InputMap },
@@ -2217,8 +2217,8 @@ function crossroi_q(fast: Input, slow: Input, prices: Input, fee: number) {
  * Submit Cross Signals Action
  */
 export
-function crossaction_q(fast: Input, slow: Input) {
-  return submit(105, [fast, slow], []) as {
+function crossaction_q(fast: Input, slow: Input, name?: string | symbol) {
+  return submit(105, [fast, slow], [], name) as {
     id: number,
     indic_index: number,
     inputs: { fast: InputMap, slow: InputMap },
