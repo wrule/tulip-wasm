@@ -27,6 +27,8 @@ type SequenceResult<T extends InputsMap> = IsUnion<keyof T> extends true ?
   { [name in keyof T]: Float64Array } :
   Float64Array;
 
+type ParamsMap = { [name: string]: { [name: string]: number } };
+
 class Sequence<T extends Task = Task> {
   private size!: number;
   public readonly tasks: Task[] = [];
@@ -72,6 +74,15 @@ class Sequence<T extends Task = Task> {
     this.tasks.push(task);
     this.tasks_map.set(name, task.id);
     return task;
+  }
+
+  public Update(params_map: ParamsMap) {
+    Object.entries(params_map).forEach(([name, params]) => {
+      const task = this.tasks_map.get(name);
+      if (task == null) throw '';
+      const options = documents[task].option_names.map((name) => params[name]);
+      this.tulipx._set_array(this.tulipx._options(task), options);
+    });
   }
 
   public Run() {
