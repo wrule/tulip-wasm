@@ -40,7 +40,8 @@ class Code {
 
   private get argsCodeSubmit() {
     const inputs = this.names(this.indic.input_names, 'Input');
-    return [inputs, this.optionsCode].filter((item) => item).join(', ');
+    const name = 'name?: string | symbol';
+    return [inputs, this.optionsCode, name].filter((item) => item).join(', ');
   }
 
   public CodeRun() {
