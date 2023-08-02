@@ -79,7 +79,7 @@ class Sequence<T extends Task = Task> {
   public Update(params_map: ParamsMap) {
     Object.entries(params_map).forEach(([name, params]) => {
       const task = this.tasks_map.get(name);
-      if (task == null) throw '';
+      if (task == null) throw 'task does not exist';
       const options = documents[task].option_names.map((name) => params[name]);
       this.tulipx._set_array(this.tulipx._options(task), options);
     });
