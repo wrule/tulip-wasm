@@ -44,13 +44,13 @@ class Sequence<T extends Task = Task> {
     }]));
   }
 
-  private tasks_map = new Map<string, number>();
+  private tasks_map = new Map<string | symbol, number>();
 
   public _push(
     indic_index: number,
     inputs: Input[],
     options: ArrayLike<number>,
-    name: string,
+    name: string | symbol,
   ) {
     if (this.tasks_map.has(name)) throw 'name already exists';
     if (this.size == null)
@@ -108,7 +108,7 @@ function submit(
   indic_index: number,
   inputs: Input[],
   options: ArrayLike<number> = [],
-  name: string = '',
+  name: string | symbol = Symbol(),
 ) {
   const seq: Sequence = Global.tulip_sequence;
   return seq._push(indic_index, inputs, options, name);
