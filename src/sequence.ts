@@ -107,8 +107,8 @@ export
 function submit(
   indic_index: number,
   inputs: Input[],
-  options: ArrayLike<number>,
-  name: string,
+  options: ArrayLike<number> = [],
+  name: string = '',
 ) {
   const seq: Sequence = Global.tulip_sequence;
   return seq._push(indic_index, inputs, options, name);
