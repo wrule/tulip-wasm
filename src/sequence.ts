@@ -42,11 +42,15 @@ class Sequence<T extends Task = Task> {
     }]));
   }
 
+  private tasks_map = new Map<string, number>();
+
   public _push(
     indic_index: number,
     inputs: Input[],
     options: ArrayLike<number>,
+    name: string,
   ) {
+    if (this.tasks_map.has(name)) throw 'name already exists';
     if (this.size == null)
       this.size = (inputs.find((input) => IsArrayLike(input)) as ArrayLike<number>)?.length;
     if (this.size == null) throw 'entry task must have a size';
@@ -66,6 +70,7 @@ class Sequence<T extends Task = Task> {
       outputs: this.inputs_map(documents[indic_index].output_names, id, 0),
     };
     this.tasks.push(task);
+    this.tasks_map.set(name, task.id);
     return task;
   }
 
@@ -92,9 +97,10 @@ function submit(
   indic_index: number,
   inputs: Input[],
   options: ArrayLike<number>,
+  name: string,
 ) {
   const seq: Sequence = Global.tulip_sequence;
-  return seq._push(indic_index, inputs, options);
+  return seq._push(indic_index, inputs, options, name);
 }
 
 export
