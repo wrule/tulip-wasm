@@ -1,6 +1,4 @@
-import { Global } from './utils';
 import { Indicator } from './indicator';
-import { TulipX } from './tulipx_promise';
 import indicators from './indicators.json';
 
 export
