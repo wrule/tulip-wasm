@@ -1,5 +1,5 @@
 import * as t from '.';
-const data = require('../ETH_USDT-30m.json');
+const data = require('../data/ETH_USDT-30m.json');
 
 async function dev() {
   await t.init();
