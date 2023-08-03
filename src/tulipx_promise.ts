@@ -39,7 +39,7 @@ async function init() {
   if (Global.tulip_wasm) return Global.tulip_wasm as TulipX;
   const log = !initializing;
   initializing = true;
-  log && console.log('initialize tulip-wasm...');
+  log && console.log('initialize @litebot/t...');
   Global.tulip_wasm = await tulipx_promise;
   log && console.log('initialization successful');
   return Global.tulip_wasm as TulipX;

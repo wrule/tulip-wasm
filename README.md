@@ -1,2 +1,2 @@
-# tulip-wasm
-tulip-wasm
+# @litebot/t
+@litebot/t
