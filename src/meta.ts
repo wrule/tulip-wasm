@@ -6,13 +6,6 @@ import indicators from './indicators.json';
 export
 const documents: Indicator[] = indicators;
 
-export
-const gc_registry = new FinalizationRegistry((ids: number[]) => {
-  const tulipx: TulipX = Global.tulip_wasm;
-  // console.log(Date.now(), 'gc', ids);
-  tulipx._erase_batch(ids[0], ids[ids.length - 1], 0);
-});
-
 export * from './single';
 export * from './sequence';
 export * from './indicator';

@@ -1,4 +1,4 @@
-import { TulipX, documents, gc_registry } from './meta';
+import { TulipX, documents } from './meta';
 import { Global, IsArrayLike, IsUnion, RunResult } from './utils';
 
 export
