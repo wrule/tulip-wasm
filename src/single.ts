@@ -37,11 +37,11 @@ function run(
 }
 
 export
-function _copy(outputs: Float64Array[], length: number) {
+function _copy(outputs: Float64Array[], length: number, fill = NaN) {
   return outputs.map((output) => {
     const diff = length - output.length;
     if (diff > 0) {
-      const head = new Float64Array(Array(diff).fill(NaN));
+      const head = new Float64Array(Array(diff).fill(fill));
       const array = new Float64Array(head.length + output.length);
       array.set(head, 0);
       array.set(output, head.length);
