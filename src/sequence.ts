@@ -32,6 +32,7 @@ type ParamsMap = { [name: string]: { [name: string]: number } };
 class Sequence<T extends Task = Task> {
   private size!: number;
   private tasks: Task[] = [];
+  private tasks_map = new Map<string | symbol, Task>();
   private readonly tulipx: TulipX = Global.tulip_wasm;
 
   private inputs_map(
@@ -43,8 +44,6 @@ class Sequence<T extends Task = Task> {
       target_index, is_inputs, data_index: index,
     }]));
   }
-
-  private tasks_map = new Map<string | symbol, Task>();
 
   public _push(
     indic_index: number,
