@@ -31,7 +31,7 @@ type ParamsMap = { [name: string]: { [name: string]: number } };
 
 class Sequence<T extends Task = Task> {
   private size!: number;
-  public readonly tasks: Task[] = [];
+  private tasks: Task[] = [];
   private readonly tulipx: TulipX = Global.tulip_wasm;
 
   private inputs_map(
@@ -128,7 +128,5 @@ function sequence<T extends Task>(func: () => T) {
   Global.tulip_sequence = seq;
   func();
   Global.tulip_sequence = null;
-  if (seq.tasks.length < 1) throw 'tasks is empty';
-  gc_registry.register(seq, [seq.tasks[0].id, seq.tasks[seq.tasks.length - 1].id]);
   return seq;
 }
