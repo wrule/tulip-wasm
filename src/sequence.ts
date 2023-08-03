@@ -107,6 +107,7 @@ class Sequence<T extends Task = Task> {
     const last = this.tasks[this.tasks.length - 1];
     this.tulipx._erase_batch(first.id, last.id, 0);
     this.tasks = [];
+    this.tasks_map.clear();
   }
 }
 
